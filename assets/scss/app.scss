@@ -10,24 +10,29 @@ body {
     font-family: $font-text;
     font-size: $font-size;
 }
+
 h1, h2, h3, h4, h5, h6{
     font-family: $font-title;
     font-size: $font-size-title;
 }
+
 .form-control{
     border-radius: $spacing;
     font-family: $font-text;
     font-size: $font-size;
     height: calc(100px + (120 - 100) * ((100vw - 300px) / (1600 - 300)));
 }
+
 input[type="checkbox"]{
     height: 8vh;
 }
+
 .btn{
     border-radius: $spacing;
     font-family: $font-text;
     font-size: $font-size;
 }
+
 .module{
     width: calc(100vw - 100px);
     height: calc(100vh - 100px);

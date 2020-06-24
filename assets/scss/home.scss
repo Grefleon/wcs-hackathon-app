@@ -1,0 +1,156 @@
+@import "vars";
+
+body{
+	overflow-x: hidden;
+	overflow-y: hidden;
+	background-image: linear-gradient(to bottom, #fa709a 0%, #fee140 100%);
+
+	.home {
+
+		.sky {
+			position: absolute;
+			height: 31vh;
+			width: 100%;
+			background-image: linear-gradient(to bottom, #43e97b 0%, rgba(56,249,215,1) 90%, rgba(56,249,215,0.1) 100%);
+		}
+
+		.ocean {
+			position: absolute;
+			height: 60vh;
+			width: 175%;
+			background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 60%);
+			border-radius: 50%;
+		}
+
+		.boat {
+
+			*:before, *:after {
+				content: '';
+				position: absolute;
+			}
+
+			position: absolute;
+			height: 150px;
+			width: 120px;
+			z-index: 3;
+			&:after {
+				// background-color: #6d1e5a;
+				background-image: linear-gradient(to bottom, #6d1e5a 0%, transparent 100%);
+				bottom: -149px;
+				width: 95%;
+				height: 150px;
+				left: -10%;
+				-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+				clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+			}
+			.boat-bottom {
+				bottom: 0;
+				left: 0;
+				-webkit-clip-path: polygon(0 70%, 100% 70%, 85% 100%, 15% 100%);
+				clip-path: polygon(0 70%, 100% 70%, 85% 100%, 15% 100%);
+				background-color: #7c276a;
+				width: 100%;
+				height: 100px;
+				&:before {
+					left: 0;
+					bottom: 0;
+					height: 100%;
+					width: 50%;
+					background-color: #853073;
+				}
+				&:after {
+					background-color: #7c276a;
+					width: 50%;
+					height: 10px;
+					left: 0;
+					bottom: 10px;
+				}
+				.squares {
+					width: 100%;
+					height: 8px;
+					bottom: 20px;
+					left: 2px;
+				}
+				.square {
+					background-color: #ffad54;
+					width: 5px;
+					height: 5px;
+					bottom: 0;
+				}
+				.square:nth-of-type(1) {
+					left: 10px;
+				}
+				.square:nth-of-type(2) {
+					left: 40px;
+				}
+				.square:nth-of-type(3) {
+					left: 70px;
+				}
+				.square:nth-of-type(4) {
+					left: 100px;
+				}
+			}
+			.boat-behind {
+				width: 40px;
+				height: 10px;
+				background-color: #621352;
+				bottom: 30px;
+				left: 40px;
+				&:after {
+					width: 50%;
+					height: 100%;
+					left: 0;
+					background-color: #711b5f;
+				}
+			}
+			.boat-top-left {
+				background-color: #f4845a;
+				-webkit-clip-path: polygon(0% 100%, 50% 0%, 50% 100%);
+				clip-path: polygon(0% 100%, 50% 0%, 50% 100%);
+				width: 95%;
+				height: 75%;
+				bottom: 37px;
+			}
+			.boat-top-right {
+				right: 0;
+				bottom: 37px;
+				width: 95%;
+				height: 60%;
+				background-color: #e87255;
+				z-index: 33;
+				clip-path: polygon(0% 100%, 50% 0%, 50% 100%);
+				transform: scaleX(-1);
+			}
+		}
+
+		.cloud1, .cloud2, .cloud3{
+			position: absolute;
+			width: 75px;
+			opacity: 0.8;
+		}
+
+		.cloud2{
+			top: 50px;
+			left: 75px;
+		}
+
+		.cloud3{
+			top: 25px;
+			left: 150px
+		}
+
+		.palm{
+			position: absolute;
+			bottom: 20vh;
+			left: -50px;
+		}
+	}
+}
+
+@keyframes cloudMove{
+	from{
+
+	}to{
+
+	 }
+}
