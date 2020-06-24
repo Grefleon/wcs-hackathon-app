@@ -25,6 +25,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addStyleEntry('login', './assets/scss/login.scss')
+    .addStyleEntry('main', './assets/scss/main.scss')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
