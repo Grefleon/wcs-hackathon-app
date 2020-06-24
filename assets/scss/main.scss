@@ -1,0 +1,15 @@
+@import "vars";
+
+.main-page{
+    .infos{
+        margin-top: $spacing-l;
+        word-break: break-word;
+        font-size: 64px;
+
+        img{
+            object-fit: contain;
+            margin-top: $spacing;
+            margin-bottom: $spacing;
+        }
+    }
+}

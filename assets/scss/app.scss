@@ -30,8 +30,8 @@ input[type="checkbox"]{
 }
 .module{
     width: calc(100vw - 100px);
-    height: calc(100vh - 100px);
+    border-radius: $spacing;
     background-color: $light;
-    padding: 20px;
+    padding: $spacing-xl;
     margin: auto;
 }

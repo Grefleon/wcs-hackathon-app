@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Smile{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('main') }}
+{% endblock %}
+
+{% block body %}
+<div class="main-page">
+    <div class="infos module">
+        <h2>Mon profil</h2>
+        <div class="row justify-content-center">
+            <img class="col-8" src="{{ infos.avatar }}" alt="Avatar {{ infos.username }}">
+        </div>
+        <div class="row">
+            <div class="col-7 d-flex flex-column">
+                <p>{{ infos.username }}</p>
+                <p>{{ infos.email }}</p>
+            </div>
+            <div class="col-5 d-flex flex-column">
+                <p>Niveau {{ infos.level }}</p>
+                <p>{{ infos.experience }} exp</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
