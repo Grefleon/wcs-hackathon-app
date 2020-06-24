@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -53,6 +55,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $avatar;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Goal::class)
+     */
+    private $Goals;
+
+    public function __construct()
+    {
+        $this->Goals = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -171,6 +183,32 @@ class User implements UserInterface
     public function setAvatar(string $avatar = "/images/default.png"): self
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Goal[]
+     */
+    public function getGoals(): Collection
+    {
+        return $this->Goals;
+    }
+
+    public function addGoal(Goal $goal): self
+    {
+        if (!$this->Goals->contains($goal)) {
+            $this->Goals[] = $goal;
+        }
+
+        return $this;
+    }
+
+    public function removeGoal(Goal $goal): self
+    {
+        if ($this->Goals->contains($goal)) {
+            $this->Goals->removeElement($goal);
+        }
 
         return $this;
     }
