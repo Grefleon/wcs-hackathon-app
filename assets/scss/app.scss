@@ -29,7 +29,6 @@ input[type="checkbox"]{
     font-size: $font-size;
 }
 .module{
-    width: calc(100vw - 100px);
     border-radius: $spacing;
     background-color: $light;
     padding: $spacing-xl;

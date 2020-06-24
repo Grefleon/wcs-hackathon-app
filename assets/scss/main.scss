@@ -1,10 +1,18 @@
 @import "vars";
 
 .main-page{
+    h2{
+        font-size: 32px;
+    }
+
     .infos{
         margin-top: $spacing-l;
         word-break: break-word;
-        font-size: 64px;
+        font-size: 24px;
+        border-radius: $spacing;
+        background-color: $light;
+        padding: $spacing;
+        margin: auto;
 
         img{
             object-fit: contain;
