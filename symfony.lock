@@ -1,4 +1,46 @@
 {
+    "amphp/amp": {
+        "version": "v2.4.4"
+    },
+    "amphp/byte-stream": {
+        "version": "v1.7.3"
+    },
+    "amphp/cache": {
+        "version": "v1.4.0"
+    },
+    "amphp/dns": {
+        "version": "v1.2.2"
+    },
+    "amphp/hpack": {
+        "version": "v3.1.0"
+    },
+    "amphp/http": {
+        "version": "v1.6.0"
+    },
+    "amphp/http-client": {
+        "version": "v4.4.0"
+    },
+    "amphp/parser": {
+        "version": "v1.0.0"
+    },
+    "amphp/process": {
+        "version": "v1.1.0"
+    },
+    "amphp/serialization": {
+        "version": "v1.0.0"
+    },
+    "amphp/socket": {
+        "version": "v1.1.2"
+    },
+    "amphp/sync": {
+        "version": "v1.4.0"
+    },
+    "amphp/windows-registry": {
+        "version": "v0.3.2"
+    },
+    "daverandom/libdns": {
+        "version": "v2.0.2"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -20,6 +62,9 @@
     "doctrine/common": {
         "version": "2.13.3"
     },
+    "doctrine/data-fixtures": {
+        "version": "1.4.3"
+    },
     "doctrine/dbal": {
         "version": "2.10.2"
     },
@@ -36,6 +81,18 @@
             "config/packages/prod/doctrine.yaml",
             "src/Entity/.gitignore",
             "src/Repository/.gitignore"
+        ]
+    },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "fc52d86631a6dfd9fdf3381d0b7e3df2069e51b3"
+        },
+        "files": [
+            "src/DataFixtures/AppFixtures.php"
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
@@ -81,6 +138,18 @@
     "egulias/email-validator": {
         "version": "2.1.18"
     },
+    "kelunik/certificate": {
+        "version": "v1.1.2"
+    },
+    "league/uri": {
+        "version": "6.2.1"
+    },
+    "league/uri-interfaces": {
+        "version": "2.1.0"
+    },
+    "league/uri-parser": {
+        "version": "1.4.1"
+    },
     "monolog/monolog": {
         "version": "2.1.0"
     },
@@ -113,6 +182,9 @@
     },
     "psr/event-dispatcher": {
         "version": "1.0.0"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
     },
     "psr/link": {
         "version": "1.0.0"

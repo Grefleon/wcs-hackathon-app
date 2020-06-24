@@ -1,0 +1,46 @@
+$font-title: 'Bubblegum Sans', cursive;
+$font-text: 'Quicksand', sans-serif;
+$font-size: calc(80px + (90 - 80) * ((100vw - 300px) / (1600 - 300)));
+$font-size-sub-title: calc(24px + (36 - 24) * ((100vw - 300px) / (1600 - 300)));
+$font-size-title: calc(160px + (150 - 160) * ((100vw - 300px) / (1600 - 300)));
+$font-size-h1: calc(54px + (66 - 54) * ((100vw - 300px) / (1600 - 300)));
+
+$spacing: 16px;
+$spacing-xs: $spacing / 4;
+$spacing-s: $spacing / 2;
+$spacing-l: $spacing * 2;
+$spacing-xl: $spacing * 4;
+
+$primary: #07A476;
+$primary-shadow: #026056;
+$secondary: #F9A948;
+$secondary-shadow: #F28F48;
+$success: #89cd65;
+$danger: #cd6965;
+$warning: #cd9e65;
+$info: #28BCAA;
+$light: #e5fff7;
+$dark: #023123;
+$body: #011c14;
+$muted: #a4bdb5;
+$white: #e5fff7;
+$black-50: rgba(1, 28, 20, 0.5);
+$white-50: rgba(229, 255, 247, 0.50);
+
+$theme-colors: (
+        "primary": $primary,
+        "primary-shadow": $primary-shadow,
+        "secondary": $secondary,
+        "secondary-shadow": $secondary-shadow,
+        "success": $success,
+        "danger": $danger,
+        "warning": $warning,
+        "info": $info,
+        "light": $light,
+        "dark": $dark,
+        "body": $body,
+        "muted": $muted,
+        "white": $white,
+        "black-50": $black-50,
+        "white-50": $white-50,
+);
