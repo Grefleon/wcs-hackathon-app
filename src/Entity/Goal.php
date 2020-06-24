@@ -23,7 +23,8 @@ class Goal
     private $goal;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=GoalSection::class, inversedBy="goals")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $section;
 
@@ -44,12 +45,12 @@ class Goal
         return $this;
     }
 
-    public function getSection(): ?string
+    public function getSection(): ?GoalSection
     {
         return $this->section;
     }
 
-    public function setSection(string $section): self
+    public function setSection(?GoalSection $section): self
     {
         $this->section = $section;
 
