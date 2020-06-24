@@ -4,6 +4,15 @@
 
 {% block body %}
     <section class="module">
-
+{% for goal in goals %}
+    <h3>Mes Objectifs</h3>
+    <p> </p>
+    <p></p>
+    <div class="card">
+        <div class="card-body" style="width: 12rem; background-color: #5eb5e0">
+            <h3 class="card-title">{{ goal.section.name }}</h3>
+            <p class="card-subtitle mb-2 text-muted">{{ goal.goal }}</p></div>
+    </div>
+        {% endfor %}
     </section>
 {% endblock %}
