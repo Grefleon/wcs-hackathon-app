@@ -1,23 +1,50 @@
 @import "vars";
 
 .main-page{
-    h2{
-        font-size: 32px;
-    }
+    border-radius: $spacing;
+    background-color: $light;
+    padding: $spacing;
+    width: 90%;
+    margin-: auto;
+    margin-top: $spacing-l;
 
     .infos{
-        margin-top: $spacing-l;
         word-break: break-word;
         font-size: 24px;
-        border-radius: $spacing;
-        background-color: $light;
-        padding: $spacing;
-        margin: auto;
 
-        img{
-            object-fit: contain;
+
+        .neu-avatar-box{
+            border-radius: 50%;
+            background: linear-gradient(45deg, #cee6de, #f5ffff);
+            box-shadow:  7px -7px 14px #c3d9d2,
+            -7px 7px 14px #ffffff;
+            width: 120px;
+            height: 120px;
             margin-top: $spacing;
-            margin-bottom: $spacing;
+            padding: 10px;
+            .avatar{
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+            }
+        }
+
+        .level-box{
+            padding: $spacing-s;
+            line-height: 0.75em;
+            font-size: 0.75em;
+            .small{
+                font-size: 0.75em;
+            }
+        }
+
+        h2{
+            margin-top: $spacing;
+            font-size: 32px;
+        }
+
+        .info-email{
+            font-size: 0.75em;
         }
     }
 }
