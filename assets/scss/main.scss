@@ -106,9 +106,7 @@ div.experiences{
             padding: $spacing-s;
             line-height: 0.75em;
             font-size: 0.75em;
-            .small{
-                font-size: 0.75em;
-            }
+
         }
 
         h2{
@@ -130,6 +128,19 @@ div.experiences{
             position: absolute;
             top: $spacing-s;
             right: $spacing-s;
+        }
+
+        .interests{
+            margin: $spacing 0 $spacing-s $spacing-s;
+
+            .interest{
+                background-color: $primary;
+                border-radius: $spacing-s;
+                padding: $spacing-xs;
+                .small{
+                    font-size: 0.6em;
+                }
+            }
         }
     }
 }
@@ -155,6 +166,8 @@ div.experiences{
         margin-top: $spacing;
         margin-bottom: $spacing * 1.5;
     }
+
+    margin-bottom: $spacing-l;
 }
 
 .moodTest{
