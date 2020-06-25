@@ -1,21 +1,38 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Register{% endblock %}
-
+{% block title %}Smile - Inscription{% endblock %}
+        {% block stylesheets %}
+            {{ parent() }}
+            {{ encore_entry_link_tags('login') }}
+        {% endblock %}
 {% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+    <section class="login container">
+        <div>
+            {% for flashError in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            {% endfor %}
 
-    <h1>Register</h1>
+            <h1>Inscription</h1>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+            <div class="module mb-4">
+                {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.username, {
+                    label: 'Nom d\'utilisateur'
+                }) }}
+                {{ form_row(registrationForm.email, {
+                    label: 'Mail'
+                }) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password'
+                }) }}
+                {{ form_row(registrationForm.agreeTerms, {
+                    label: 'Conditions d\'utilisation'
+                }) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                <button type="submit" class="btn btn-lg btn-block btn-primary">S'enregistrer</button>
+                {{ form_end(registrationForm) }}
+            </div>
+            <div class="module info"><p>Vous avez déjà un compte ? </p><a href="{{ path('app_login') }}">S'identifier</a>
+            </div>
+        </div>
+    </section>
 {% endblock %}
