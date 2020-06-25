@@ -81,6 +81,11 @@ class User implements UserInterface
      */
     private $goals;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $moodTest;
+
     public function __construct()
     {
         $this->goals = new PersistentCollection();
@@ -241,6 +246,18 @@ class User implements UserInterface
         if ($this->Goals->contains($goal)) {
             $this->Goals->removeElement($goal);
         }
+
+        return $this;
+    }
+
+    public function getMoodTest(): ?bool
+    {
+        return $this->moodTest;
+    }
+
+    public function setMoodTest(bool $moodTest): self
+    {
+        $this->moodTest = $moodTest;
 
         return $this;
     }

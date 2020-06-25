@@ -28,7 +28,6 @@
             <a class="logout" href="{{ path('app_logout')}}">
                 <i class="fas fa-sign-out-alt"></i>
             </a>
-
         </div>
     </section>
     <section class="exp container">
@@ -50,4 +49,21 @@
         {% endfor %}
         <a class="btn btn-primary btn-block btn-lg" href="{{ path('goal_index') }}">Gérer mes objectifs</a>
     </div>
+    {% if infos.moodTest %}
+        <div class="bgMood" id="bgMood"></div>
+        <section class="moodTest container" id="moodTest">
+            <h3>Exprimez-vous</h3>
+            <textarea placeholder="Ma journée s'est elle bien passée ?"></textarea>
+            <p class="text-muted">Nb: Ce message n'est pas enregistré</p>
+            <div class="row justify-content-center align-content-center">
+                <button class="btn btn-primary" id="happyBtn"><i class="far fa-smile-beam"></i></button>
+                <button class="btn btn-primary" id="sadBtn"><i class="far fa-frown"></i></button>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('moodTest') }}
 {% endblock %}

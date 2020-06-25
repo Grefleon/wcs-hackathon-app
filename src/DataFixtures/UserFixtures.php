@@ -32,6 +32,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setAvatar();
         $user->setExperience();
         $user->setLevel();
+        $user->setMoodTest(true);
 
         $goal = new Goal();
         $goal->setGoal('Voir ma famille dans la semaine');
