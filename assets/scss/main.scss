@@ -43,7 +43,6 @@
     padding: $spacing;
     width: 90%;
 
-    //margin: $spacing auto auto;
 
     .infos{
         word-break: break-word;
@@ -102,9 +101,14 @@
 
 .goals{
     position: relative;
-    z-index: 10;
+    z-index: 7;
+    border-radius: $spacing;
+    background-color: $light;
+    padding: $spacing;
+    width: 90%;
+    margin-top: $spacing;
   
-  h2{
+    h2{
         font-size: 32px;
     }
 
@@ -112,7 +116,7 @@
         margin-top: $spacing;
     }
   
-  .no-goal{
+    .no-goal{
         margin-top: $spacing;
         margin-bottom: $spacing * 1.5;
     }
