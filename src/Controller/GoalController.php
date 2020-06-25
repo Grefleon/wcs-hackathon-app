@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/goal", name="goal_")
@@ -20,6 +21,7 @@ class GoalController extends AbstractController
 {
     /**
      * @Route("/", name="index")
+     * @IsGranted("ROLE_USER")
      * @param GoalSectionRepository $goalSectionRepository
      * @return Response
      */

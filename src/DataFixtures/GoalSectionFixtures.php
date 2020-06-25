@@ -14,6 +14,7 @@ class GoalSectionFixtures extends Fixture
         'Quotidien' => 'fas fa-home',
         'Cuisine'=> 'fas fa-carrot',
         'Vie sociale' => 'fas fa-users',
+        'Sport' => 'fas fa-basketball-ball',
     ];
 
     public function load(ObjectManager $manager)
