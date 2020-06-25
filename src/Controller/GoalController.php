@@ -21,7 +21,6 @@ class GoalController extends AbstractController
 {
     /**
      * @Route("/", name="index")
-     * @param GoalRepository $goals
      * @param GoalSectionRepository $goalSectionRepository
      * @return Response
      */

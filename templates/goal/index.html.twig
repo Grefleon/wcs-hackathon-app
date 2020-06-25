@@ -7,9 +7,7 @@
     <h2>Mes Objectifs</h2>
     <section class="module mb-2">
         <h3>En cours</h3>
-        {{ dump(userGoals) }}
-
-        {% for goal in userGoals %}
+        {% for goal in userGoals.goals %}
     <div class="card mb-2 text-center {{ goal.section.name }}">
             <strong class="card-title"><i class="mr-2 {{ goal.section.icon }}"></i>{{ goal.section.name }}</strong>
             <p class="card-subtitle mb-2">{{ goal.name }}</p>
@@ -19,15 +17,12 @@
     </section>
     <section class="module">
         <h3>Définir d'autres objectifs</h3>
-        {% for goal in userGoals.goals %}
-            goal.name
-        {% endfor %}
         {% for goalSection in goalSectionRepository %}
         <div class="card mb-2 text-center {{ goalSection.name }}">
             <strong>{{ goalSection.name }}</strong>
             <ul>
                 {% for goal in goalSection.goals %}
-                    <a href="{{ path("goal_add", {'id': goal.id}) }}">{{ goal.name }}</a>
+                    <div><a href="{{ path("goal_add", {'id': goal.id}) }}">{{ goal.name }}</a></div>
                 {% endfor %}
             </ul>
         </div>
