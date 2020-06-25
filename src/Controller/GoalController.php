@@ -15,12 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @Route("/goal")
+ * @Route("/goal", name="goal_")
  */
 class GoalController extends AbstractController
 {
     /**
-     * @Route("/", name="goal_index")
+     * @Route("/", name="index")
+     * @param GoalRepository $goals
      * @param GoalSectionRepository $goalSectionRepository
      * @return Response
      */

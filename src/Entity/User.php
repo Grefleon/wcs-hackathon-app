@@ -4,7 +4,10 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -77,11 +80,16 @@ class User implements UserInterface
     /**
      * @ORM\ManyToMany(targetEntity=Goal::class)
      */
-    private $Goals;
+    private $goals;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $moodTest;
 
     public function __construct()
     {
-        $this->Goals = new ArrayCollection();
+        $this->goals = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -218,17 +226,17 @@ class User implements UserInterface
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection|Goal[]
      */
-    public function getGoals(): ArrayCollection
+    public function getGoals(): Collection
     {
-        return $this->Goals;
+        return $this->goals;
     }
 
     public function addGoal(Goal $goal): self
     {
-        if (!$this->Goals->contains($goal)) {
-            $this->Goals[] = $goal;
+        if (!$this->goals->contains($goal)) {
+            $this->goals[] = $goal;
         }
 
         return $this;
@@ -239,6 +247,18 @@ class User implements UserInterface
         if ($this->Goals->contains($goal)) {
             $this->Goals->removeElement($goal);
         }
+
+        return $this;
+    }
+
+    public function getMoodTest(): ?bool
+    {
+        return $this->moodTest;
+    }
+
+    public function setMoodTest(bool $moodTest): self
+    {
+        $this->moodTest = $moodTest;
 
         return $this;
     }
