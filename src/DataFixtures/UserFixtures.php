@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\ExperienceList;
 use App\Entity\Goal;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -44,6 +45,20 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $goal->setSection($this->getReference('section_2'));
         $manager->persist($goal);
         $user->addGoal($goal);
+
+        $entry = new ExperienceList();
+        $entry->setReason('Inscription sur Smile');
+        $entry->setAmount(200);
+        $user->setExperience($user->getExperience() + 200);
+        $manager->persist($entry);
+        $user->addExperienceList($entry);
+
+        $entry = new ExperienceList();
+        $entry->setReason('Ajout d\'un avatar à mon profile');
+        $entry->setAmount(200);
+        $user->setExperience($user->getExperience() + 200);
+        $manager->persist($entry);
+        $user->addExperienceList($entry);
 
         $manager->persist($user);
 

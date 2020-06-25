@@ -25,4 +25,17 @@ class MainController extends AbstractController
             'infos' => $infos,
         ]);
     }
+
+    /**
+     * @Route("/experiences", name="experiences")
+     * @return Response
+     */
+    public function ListExperiences()
+    {
+        $user = $this->getUser();
+        $infos = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $user->getUsername()]);
+        return $this->render('main/exp.html.twig', ['experiences' => $infos->getExperienceList()]);
+    }
 }
