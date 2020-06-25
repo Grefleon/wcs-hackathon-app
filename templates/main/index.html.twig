@@ -21,6 +21,16 @@
             <div class="row flex-column text-center">
                 <h2>{{ infos.username }}</h2>
             </div>
+            {% if infos.interests is not empty %}
+            <div class="row justify-content-around interests">
+                {% for interest in infos.interests %}
+                    <div class="interest d-flex flex-column align-items-center">
+                        <i class="{{ interest.icon }}"></i>
+                        <div class="small">{{ interest.name }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
             <a class="edit" href="{{ path('user_edit', {'id': infos.id }) }}">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </a>

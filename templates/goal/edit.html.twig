@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Goal{% endblock %}
+
+{% block body %}
+    <h1>Edit Goal</h1>
+
+    {{ include('goal/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('goal_index') }}">back to list</a>
+
+    {{ include('goal/_delete_form.html.twig') }}
+{% endblock %}

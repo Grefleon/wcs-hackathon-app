@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\ExperienceList;
 use App\Entity\Goal;
+use App\Entity\GoalSection;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -52,6 +53,27 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $goal->setName('Aller au restaurant');
         $goal->setSection($this->getReference('section_2'));
         $manager->persist($goal);
+
+        $interest = new GoalSection();
+        $interest->setName('Quotidien');
+        $interest->setIcon('fas fa-home');
+        $this->setReference('section_1', $interest);
+        $manager->persist($interest);
+        $user->addInterest($interest);
+
+        $interest = new GoalSection();
+        $interest->setName('Cuisine');
+        $interest->setIcon('fas fa-carrot');
+        $this->setReference('section_2', $interest);
+        $manager->persist($interest);
+        $user->addInterest($interest);
+
+        $interest = new GoalSection();
+        $interest->setName('Vie sociale');
+        $interest->setIcon('fas fa-users');
+        $this->setReference('section_3', $interest);
+        $manager->persist($interest);
+        $user->addInterest($interest);
 
         $entry = new ExperienceList();
         $entry->setReason('Inscription sur Smile');
