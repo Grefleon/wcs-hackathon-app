@@ -1,5 +1,13 @@
 @import "vars";
 
+.return{
+    position: absolute;
+    top: $spacing;
+    a {
+        outline: none;
+    }
+}
+
 .login{
     display: flex;
     flex-direction: column;
@@ -10,7 +18,8 @@
 .module{
     display: flex;
     flex-direction: column;
-    background-color: $white-50;
+    background-color: $light;
+    color: $dark;
 }
 
 .info{
