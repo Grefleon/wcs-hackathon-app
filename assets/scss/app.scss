@@ -16,6 +16,15 @@ body {
     font-size: $font-size-sm;
 }
 
+.return{
+    position: absolute;
+    z-index: 9;
+    top: $spacing;
+    a {
+        outline: none;
+    }
+}
+
 .module{
     border-radius: $spacing;
     padding: $spacing;

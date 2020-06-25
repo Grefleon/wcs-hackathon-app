@@ -78,7 +78,6 @@ class GoalSection
     {
         if ($this->goals->contains($goal)) {
             $this->goals->removeElement($goal);
-            // set the owning side to null (unless already changed)
             if ($goal->getSection() === $this) {
                 $goal->setSection(null);
             }

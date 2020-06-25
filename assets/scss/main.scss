@@ -9,11 +9,46 @@
     width: 90%;
     margin-top: $spacing-l;
 }
-
-.experiences h2{
-    font-size: $font-size-sm;
-    text-align: left;
+.experiences{
     padding-top: $spacing;
+}
+a:hover{
+    outline: none;
+    text-decoration: none;
+}
+div.experiences{
+    outline: none;
+    text-decoration: none;
+    color: $dark;
+    :hover, :active{
+        text-decoration: none;
+        color: $dark;
+    }
+}
+.experiences p.percent{
+    margin-top: 0;
+}
+.progress-bar-animated{
+    animation-direction: reverse;
+}
+.experiences h2{
+    font-size: 32px;
+}
+.experiences p{
+    margin-top: $spacing-s;
+    font-size: 14px;
+    margin-bottom: 0;
+    text-align: center;
+}
+.expList{
+    position: relative;
+    z-index: 9;
+    h1{
+        color: $light;
+    }
+    .module{
+        background-color: $light;
+    }
 }
 
 .progress{
@@ -43,7 +78,6 @@
     padding: $spacing;
     width: 90%;
 
-    //margin: $spacing auto auto;
 
     .infos{
         word-break: break-word;
@@ -77,7 +111,7 @@
         }
 
         h2{
-            margin-top: $spacing;
+            margin-bottom: 0;
             font-size: 32px;
         }
 
@@ -101,7 +135,12 @@
 
 .goals{
     position: relative;
-    z-index: 10;
+    z-index: 7;
+    border-radius: $spacing;
+    background-color: $light;
+    padding: $spacing;
+    width: 90%;
+    margin-top: $spacing;
 
     h2{
         font-size: 32px;
@@ -109,6 +148,11 @@
 
     a{
         margin-top: $spacing;
+    }
+  
+    .no-goal{
+        margin-top: $spacing;
+        margin-bottom: $spacing * 1.5;
     }
 }
 

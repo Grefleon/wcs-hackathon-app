@@ -4,9 +4,8 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\JoinColumn;
-use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -85,10 +84,16 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $moodTest;
+  
+    /**
+     * @ORM\ManyToMany(targetEntity=ExperienceList::class)
+     */
+    private $experienceList;
 
     public function __construct()
     {
-        $this->goals = new PersistentCollection();
+        $this->goals = new ArrayCollection();
+        $this->experienceList = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -225,9 +230,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return PersistentCollection
+     * @return Collection|Goal[]
      */
-    public function getGoals(): PersistentCollection
+    public function getGoals(): Collection
     {
         return $this->goals;
     }
@@ -243,13 +248,39 @@ class User implements UserInterface
 
     public function removeGoal(Goal $goal): self
     {
-        if ($this->Goals->contains($goal)) {
-            $this->Goals->removeElement($goal);
+        if ($this->goals->contains($goal)) {
+            $this->goals->removeElement($goal);
         }
 
         return $this;
     }
 
+    /**
+     * @return Collection|ExperienceList[]
+     */
+    public function getExperienceList(): Collection
+    {
+        return $this->experienceList;
+    }
+
+    public function addExperienceList(ExperienceList $experienceList): self
+    {
+        if (!$this->experienceList->contains($experienceList)) {
+            $this->experienceList[] = $experienceList;
+        }
+
+        return $this;
+    }
+
+    public function removeExperienceList(ExperienceList $experienceList): self
+    {
+        if ($this->experienceList->contains($experienceList)) {
+            $this->experienceList->removeElement($experienceList);
+        }
+
+        return $this;
+    }
+  
     public function getMoodTest(): ?bool
     {
         return $this->moodTest;

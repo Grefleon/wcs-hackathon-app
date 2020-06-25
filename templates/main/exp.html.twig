@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Smile{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('main') }}
+{% endblock %}
+
+{% block body %}
+    <section class="expList container">
+        <div class="return"><a href="{{ path('main') }}"><i class="fas fa-arrow-left"></i></a></div>
+        <h1>Détails</h1>
+        <div class="module">
+            {% for experience in experiences %}
+                {% if experience.amount > 0 %}
+                    <p><i class="fas fa-plus-square text-success"></i> {{ experience.amount }} : {{ experience.reason }}</p>
+                {% else %}
+                    <p><i class="fas fa-minus-square text-danger"></i> {{ experience.amount }} : {{ experience.reason }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

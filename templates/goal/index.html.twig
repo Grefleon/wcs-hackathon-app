@@ -3,15 +3,14 @@
 {% block title %}Mes Objectifs{% endblock %}
 
 {% block body %}
-    <div class="container-fluid">
+    <main class="container-fluid mb-2">
     <h2>Mes Objectifs</h2>
     <section class="module mb-2">
-        <small class="">Tout voir</small>
         <h3>En cours</h3>
-{% for goal in goals %}
+        {% for goal in userGoals.goals %}
     <div class="card mb-2 text-center {{ goal.section.name }}">
             <strong class="card-title"><i class="mr-2 {{ goal.section.icon }}"></i>{{ goal.section.name }}</strong>
-            <p class="card-subtitle mb-2">{{ goal.goal }}</p>
+            <p class="card-subtitle mb-2">{{ goal.name }}</p>
         <div> <i class="far fa-grin"></i></div>
     </div>
         {% endfor %}
@@ -20,12 +19,17 @@
         <h3>Définir d'autres objectifs</h3>
         {% for goalSection in goalSectionRepository %}
         <div class="card mb-2 text-center {{ goalSection.name }}">
-            {{ goalSection.name }}
+            <strong><i class="mr-2 {{ goalSection.icon }}"></i>{{ goalSection.name }}</strong>
+            <ul>
+                {% for goal in goalSection.goals %}
+                    <div><a href="{{ path("goal_set", {'id': goal.id}) }}">{{ goal.name }}</a></div>
+                {% endfor %}
+            </ul>
         </div>
         {% endfor %}
         <div class="card mb-2 text-center">
-            Créer son objectif
+            <strong>Créer son objectif</strong>
         </div>
     </section>
-    </div>
+    </main>
 {% endblock %}
