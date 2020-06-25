@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "amphp/http-client": "^4.4",
+        "fzaninotto/faker": "^1.9",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "5.1.*",
         "symfony/console": "5.1.*",
@@ -31,8 +32,7 @@
         "symfony/web-link": "5.1.*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.1.*",
-        "symfonycasts/verify-email-bundle": "^1.0",
-      "ext-http": "*"
+        "symfonycasts/verify-email-bundle": "^1.0"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.3",
