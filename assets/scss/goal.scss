@@ -16,19 +16,6 @@ main {
   width: 12rem;
 }
 
-.Quotidien{
-  background-color: #656f68;
-  color: var(--light);
-}
-
-.Cuisine{
-  background-color: #d78262;
-}
-
-.Vie{
-  background-color: #96d4c0;
-}
-
 a, a:hover {
   text-decoration: none;
   color: inherit;
@@ -39,3 +26,40 @@ a, a:hover {
      position: relative;
      z-index: 9;
    }
+
+.goal {
+  color: var(--light);
+}
+
+.Quotidien{
+  background-color: #656f68;
+  color: var(--light);
+}
+
+.Cuisine{
+  background-color: #d78262;
+}
+
+.Sociale{
+  background-color: #96d4c0;
+}
+
+.Sport{
+  background-color: #cb8b61;
+}
+
+.Musique{
+  background-color: #c591cb;
+}
+
+.Video{
+  background-color: #d9d9a9;
+}
+
+.Web{
+  background-color: #96a0d4;
+}
+
+.Science{
+  background-color: #4cd5c5;
+}
