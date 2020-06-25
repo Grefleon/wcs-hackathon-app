@@ -31,12 +31,15 @@
         </div>
     </section>
     <section class="exp container">
-        <div class="experiences">
-            <h2>Points d'expérience : {{ infos.experience }}</h2>
-            <div class="progress"><p>{{ infos.experience != 0 ? (infos.experience / 1000) * 100 : '0' }}%</p>
-                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: {{ infos.experience != 0 ? (infos.experience / 1000) * 100 : '0' }}%" aria-valuenow="{{ infos.experience != 0 ? 1000 / infos.experience * 100 : '0' }}" aria-valuemin="0" aria-valuemax="100"></div>
+        <a href="{{ path('experiences') }}">
+            <div class="experiences">
+                <h2>Expérience</h2>
+                <div class="progress"><p class="percent">{{ infos.experience != 0 ? (infos.experience / 1000) * 100 : '0' }}%</p>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ infos.experience != 0 ? (infos.experience / 1000) * 100 : '0' }}%" aria-valuenow="{{ infos.experience != 0 ? 1000 / infos.experience * 100 : '0' }}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p>{{ 1000 - infos.experience }} points nécessaire avant le niveau {{ infos.level + 1 }}</p>
             </div>
-        </div>
+        </a>
     </section>
     <div class="goals container">
         <h2>Objectifs en cours</h2>

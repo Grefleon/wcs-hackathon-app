@@ -38,7 +38,7 @@ class GoalController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/my-goal", name="goal_add", methods={"GET","POST"})
+     * @Route("/{id}/my-goal", name="add", methods={"GET","POST"})
      * @param Goal $goal
      * @param EntityManagerInterface $manager
      * @return Response
