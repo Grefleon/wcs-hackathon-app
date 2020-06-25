@@ -25,6 +25,7 @@ class UserFixtures extends Fixture
         $user->setAvatar();
         $user->setExperience();
         $user->setLevel();
+        $user->setMoodTest(true);
 
         $manager->persist($user);
 

@@ -89,3 +89,39 @@
         }
     }
 }
+
+.moodTest{
+    position: absolute;
+    z-index: 8;
+    border-radius: $spacing;
+    background-color: $light;
+    padding: $spacing;
+    width: 90%;
+    margin: $spacing auto auto;
+    top:$spacing;
+    left: $spacing;
+
+    textarea{
+        width: 100%;
+        height: 15vh;
+        resize: none;
+    }
+
+    button{
+        margin: $spacing-xs;
+    }
+
+    .text-muted{
+        font-size: 14px;
+    }
+}
+
+.bgMood{
+    position: absolute;
+    top:0;
+    left:0;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 110%;
+    z-index: 7;
+}
