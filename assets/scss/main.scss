@@ -8,11 +8,13 @@
     border-radius: $spacing;
     width: 90%;
 }
+
 .experiences h2{
     font-size: $font-size-sm;
     text-align: left;
     padding-top: $spacing;
 }
+
 .progress{
     position: relative;
     height: $spacing;
@@ -30,6 +32,7 @@
         color: $dark;
     }
 }
+
 .main-page{
     position: relative;
     z-index: 7;
