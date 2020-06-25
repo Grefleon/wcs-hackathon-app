@@ -2,6 +2,7 @@
 
 .return{
     position: absolute;
+    z-index: 8;
     top: $spacing;
     a {
         outline: none;

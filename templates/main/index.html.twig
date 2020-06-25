@@ -5,6 +5,7 @@
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('main') }}
+    {{ encore_entry_link_tags('badge') }}
 {% endblock %}
 
 {% block body %}
@@ -39,4 +40,18 @@
             </div>
         </div>
     </section>
+    <section class="exp container">
+        <div class="experiences">
+            <h2>Derniers badges obtenus</h2>
+            <ul class="list-badges">
+                <li><i class="fas fa-calendar-alt"></i></li>
+                <li><i class="fas fa-calendar-alt"></i></li>
+                <li><i class="fas fa-calendar-alt"></i></li>
+                <li><i class="fas fa-calendar-alt"></i></li>
+                <li><i class="fas fa-calendar-alt"></i></li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
 {% endblock %}
