@@ -7,6 +7,7 @@
     background-color: $light;
     border-radius: $spacing;
     width: 90%;
+    margin-top: $spacing-l;
 }
 .experiences h2{
     font-size: $font-size-sm;
@@ -32,12 +33,14 @@
 }
 .main-page{
     position: relative;
+    top: $spacing;
     z-index: 7;
     border-radius: $spacing;
     background-color: $light;
     padding: $spacing;
     width: 90%;
-    margin: $spacing auto auto;
+
+    //margin: $spacing auto auto;
 
     .infos{
         word-break: break-word;
