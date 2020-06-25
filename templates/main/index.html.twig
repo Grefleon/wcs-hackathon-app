@@ -39,4 +39,15 @@
             </div>
         </div>
     </section>
+    <div class="goals container">
+        <h2>Objectifs en cours</h2>
+        {% for goal in infos.goals %}
+            <div class="card mb-2 text-center {{ goal.section.name }}">
+                <strong class="card-title"><i class="mr-2 {{ goal.section.icon }}"></i>{{ goal.section.name }}</strong>
+                <p class="card-subtitle mb-2">{{ goal.goal }}</p>
+                <div><i class="far fa-grin"></i></div>
+            </div>
+        {% endfor %}
+        <a class="btn btn-primary btn-block btn-lg" href="{{ path('goal_index') }}">Gérer mes objectifs</a>
+    </div>
 {% endblock %}

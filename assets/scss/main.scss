@@ -98,3 +98,21 @@
         }
     }
 }
+
+.goals{
+    position: relative;
+    z-index: 10;
+    border-radius: $spacing;
+    background-color: $light;
+    padding: $spacing;
+    width: 90%;
+    margin-top: $spacing;
+
+    h2{
+        font-size: 32px;
+    }
+
+    a{
+        margin-top: $spacing;
+    }
+}

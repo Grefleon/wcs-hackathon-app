@@ -10,12 +10,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/goal", name="goal_index")
+ * @Route("/goal", name="goal_")
  */
 class GoalController extends AbstractController
 {
     /**
-     * @Route("/", name="goal_index")
+     * @Route("/", name="index")
      * @param GoalRepository $goals
      * @param GoalSectionRepository $goalSectionRepository
      * @return Response
