@@ -1,12 +1,12 @@
 @import "vars";
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@400;600;700&display=swap');
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~@fortawesome/fontawesome-free/scss/v4-shims";
-@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@400;600;700&display=swap');
 
 body {
     width: 100vw;
@@ -18,6 +18,7 @@ body {
 
 .module{
     border-radius: $spacing;
+    background-color: $white-50;
     padding: $spacing;
     margin: auto;
 }
@@ -26,6 +27,8 @@ h1, h2, h3, h4, h5, h6{
     font-family: $font-title;
     font-size: $font-size-title-sm;
     text-align: center;
+    position: relative;
+    z-index: 7;
 }
 
 .form-control{
@@ -34,7 +37,7 @@ h1, h2, h3, h4, h5, h6{
     font-size: $font-size-sm;
     font-weight: 400;
 }
-  
+
 form label{
     font-weight: 600;
 }
@@ -59,6 +62,8 @@ form label{
         border-radius: $spacing;
         padding: $spacing;
         margin: auto;
+        position: relative;
+        z-index: 7;
     }
 
     h1, h2, h3, h4, h5, h6{
@@ -82,5 +87,22 @@ form label{
         border-radius: $spacing;
         font-family: $font-text;
         font-size: $font-size;
+    }
+
+    .card-body{
+        width: 12rem;
+    }
+
+    .Quotidien{
+        background-color: #656f68;
+        color: var(--light);
+    }
+
+    .Cuisine{
+        background-color: #d78262;
+    }
+
+    .Vie{
+        background-color: #96d4c0;
     }
 }

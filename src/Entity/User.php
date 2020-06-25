@@ -3,14 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
  */
 class User implements UserInterface
 {
@@ -74,6 +73,16 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Goal::class)
+     */
+    private $Goals;
+
+    public function __construct()
+    {
+        $this->Goals = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -204,6 +213,32 @@ class User implements UserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getGoals(): ArrayCollection
+    {
+        return $this->Goals;
+    }
+
+    public function addGoal(Goal $goal): self
+    {
+        if (!$this->Goals->contains($goal)) {
+            $this->Goals[] = $goal;
+        }
+
+        return $this;
+    }
+
+    public function removeGoal(Goal $goal): self
+    {
+        if ($this->Goals->contains($goal)) {
+            $this->Goals->removeElement($goal);
+        }
 
         return $this;
     }
