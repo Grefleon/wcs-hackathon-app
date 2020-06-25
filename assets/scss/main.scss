@@ -11,13 +11,20 @@
     padding-top: $spacing;
 }
 .progress{
+    position: relative;
     height: $spacing;
-    background-color: $primary;
     width: 100%;
+    border-radius: $spacing;
+    box-shadow:  -4px -4px 14px #b7ccc6,
+    4px 4px 14px #ffffff;
     p {
-        padding-top: $spacing - 1px;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        background-color: transparent;
+        padding-top: $spacing-s;
         font-weight: 800;
-        color: $light;
+        color: $dark;
     }
 }
 .main-page{

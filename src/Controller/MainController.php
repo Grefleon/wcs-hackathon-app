@@ -3,13 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use ContainerNkfZlRr\getObjectManagerService;
+use Doctrine\Persistence\ObjectManager as OM;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
     /**
      * @Route("/main", name="main")
+     * @return Response
      */
     public function index()
     {
@@ -17,7 +21,6 @@ class MainController extends AbstractController
         $infos = $this->getDoctrine()
             ->getRepository(User::class)
             ->findOneBy(['username' => $user->getUsername()]);
-
         return $this->render('main/index.html.twig', [
             'infos' => $infos,
         ]);
