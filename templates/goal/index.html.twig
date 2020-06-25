@@ -19,7 +19,7 @@
         <h3>Définir d'autres objectifs</h3>
         {% for goalSection in goalSectionRepository %}
         <div class="card mb-2 text-center {{ goalSection.name }}">
-            <strong>{{ goalSection.name }}</strong>
+            <strong><i class="mr-2 {{ goalSection.icon }}"></i>{{ goalSection.name }}</strong>
             <ul>
                 {% for goal in goalSection.goals %}
                     <div><a href="{{ path("goal_add", {'id': goal.id}) }}">{{ goal.name }}</a></div>
