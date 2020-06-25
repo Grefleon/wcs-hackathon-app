@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -77,7 +79,7 @@ class User implements UserInterface
     /**
      * @ORM\ManyToMany(targetEntity=Goal::class)
      */
-    private $Goals;
+    private $goals;
 
     /**
      * @ORM\Column(type="boolean")
@@ -86,7 +88,7 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->Goals = new ArrayCollection();
+        $this->goals = new PersistentCollection();
     }
 
     public function getId(): ?int
@@ -223,17 +225,17 @@ class User implements UserInterface
     }
 
     /**
-     * @return ArrayCollection
+     * @return PersistentCollection
      */
-    public function getGoals(): ArrayCollection
+    public function getGoals(): PersistentCollection
     {
-        return $this->Goals;
+        return $this->goals;
     }
 
     public function addGoal(Goal $goal): self
     {
-        if (!$this->Goals->contains($goal)) {
-            $this->Goals[] = $goal;
+        if (!$this->goals->contains($goal)) {
+            $this->goals[] = $goal;
         }
 
         return $this;

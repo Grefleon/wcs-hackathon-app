@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block body %}
-    <section class="main-page container mb-2">
+    <section class="main-page container">
         <div class="infos">
             <div class="row flex-column justify-content-center align-items-center">
                 <div class="neu-avatar-box">
@@ -25,6 +25,9 @@
             <a class="edit" href="{{ path('user_edit', {'id': infos.id }) }}">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </a>
+            <a class="logout" href="{{ path('app_logout')}}">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
         </div>
     </section>
     <section class="exp container">
@@ -35,6 +38,17 @@
             </div>
         </div>
     </section>
+    <div class="goals container">
+        <h2>Objectifs en cours</h2>
+        {% for goal in infos.goals %}
+            <div class="card mb-2 text-center {{ goal.section.name }}">
+                <strong class="card-title"><i class="mr-2 {{ goal.section.icon }}"></i>{{ goal.section.name }}</strong>
+                <p class="card-subtitle mb-2">{{ goal.goal }}</p>
+                <div><i class="far fa-grin"></i></div>
+            </div>
+        {% endfor %}
+        <a class="btn btn-primary btn-block btn-lg" href="{{ path('goal_index') }}">Gérer mes objectifs</a>
+    </div>
     {% if infos.moodTest %}
         <div class="bgMood" id="bgMood"></div>
         <section class="moodTest container" id="moodTest">
