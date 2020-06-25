@@ -16,17 +16,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
+     * @Route("/edit", name="edit", methods={"GET", "POST"})
      * @param Request $request
-     * @param User $user
      * @return Response
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request): Response
     {
         $auth = $this->getUser();
-        if ($user->getUsername() != $auth->getUsername()) {
-            return $this->redirectToRoute('main');
-        }
+
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $auth->getUsername()]);
 
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
