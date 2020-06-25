@@ -37,12 +37,12 @@ class GoalController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/my-goal", name="add", methods={"GET","POST"})
+     * @Route("/{id}/my-goal", name="set", methods={"GET","POST"})
      * @param Goal $goal
      * @param EntityManagerInterface $manager
      * @return Response
      */
-    public function addToMyGoal(Goal $goal, EntityManagerInterface $manager): Response {
+    public function setToMyGoal(Goal $goal, EntityManagerInterface $manager): Response {
         $this->getUser()->addGoal($goal);
         $manager->flush();
         return $this->redirectToRoute('goal_index');

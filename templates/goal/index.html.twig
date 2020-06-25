@@ -22,7 +22,7 @@
             <strong><i class="mr-2 {{ goalSection.icon }}"></i>{{ goalSection.name }}</strong>
             <ul>
                 {% for goal in goalSection.goals %}
-                    <div><a href="{{ path("goal_add", {'id': goal.id}) }}">{{ goal.name }}</a></div>
+                    <div><a href="{{ path("goal_set", {'id': goal.id}) }}">{{ goal.name }}</a></div>
                 {% endfor %}
             </ul>
         </div>
