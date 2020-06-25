@@ -2,10 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\GoalSection;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use App\Service\InterestManager;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -41,5 +45,67 @@ class UserController extends AbstractController
             'user' => $user,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/interests", name="interests")
+     * @return Response
+     */
+    public function editInterests(InterestManager $interestManager): Response
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $this->getUser()->getUsername()]);
+
+        $interests = $this->getDoctrine()
+            ->getRepository(GoalSection::class)
+            ->findAll();
+
+        $currentInterests = $interestManager->parseInterests($interests, $user, true);
+
+        $interests = $interestManager->parseInterests($interests, $user, false);
+
+        return $this->render('user/interests.html.twig', [
+            'interests' => $interests,
+            'currents' => $currentInterests,
+        ]);
+    }
+
+    /**
+     * @Route("/interests/remove/{id}", name="interests_remove")
+     * @param GoalSection $goalSection
+     * @return RedirectResponse
+     */
+    public function removeInterest(GoalSection $goalSection)
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $this->getUser()->getUsername()]);
+
+        $user->removeInterest($goalSection);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('user_interests');
+    }
+
+    /**
+     * @Route("/interests/add/{id}", name="interests_add")
+     * @param GoalSection $goalSection
+     * @return RedirectResponse
+     */
+    public function addInterest(GoalSection $goalSection)
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $this->getUser()->getUsername()]);
+
+        $user->addInterest($goalSection);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('user_interests');
     }
 }
