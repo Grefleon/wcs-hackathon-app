@@ -30,6 +30,7 @@
     .infos{
         word-break: break-word;
         font-size: 24px;
+        position: relative;
 
 
         .neu-avatar-box{
@@ -64,6 +65,12 @@
 
         .info-email{
             font-size: 0.75em;
+        }
+
+        .edit{
+            position: absolute;
+            top: $spacing-s;
+            right: $spacing-s;
         }
     }
 }
