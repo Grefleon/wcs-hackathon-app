@@ -27,6 +27,8 @@ h1, h2, h3, h4, h5, h6{
     font-family: $font-title;
     font-size: $font-size-title-sm;
     text-align: center;
+    position: relative;
+    z-index: 7;
 }
 
 .form-control{
@@ -60,6 +62,8 @@ form label{
         border-radius: $spacing;
         padding: $spacing;
         margin: auto;
+        position: relative;
+        z-index: 7;
     }
 
     h1, h2, h3, h4, h5, h6{
