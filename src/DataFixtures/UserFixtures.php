@@ -37,13 +37,13 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setMoodTest(true);
 
         $goal = new Goal();
-        $goal->setGoal('Voir ma famille dans la semaine');
+        $goal->setName('Voir ma famille dans la semaine');
         $goal->setSection($this->getReference('section_1'));
         $manager->persist($goal);
         $user->addGoal($goal);
 
         $goal = new Goal();
-        $goal->setGoal('Faire une nouvelle recette');
+        $goal->setName('Faire une nouvelle recette');
         $goal->setSection($this->getReference('section_2'));
         $manager->persist($goal);
         $user->addGoal($goal);
