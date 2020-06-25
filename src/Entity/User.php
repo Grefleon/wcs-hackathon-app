@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\PersistentCollection;
@@ -83,7 +84,7 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->goals = new PersistentCollection();
+        $this->goals = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -220,9 +221,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return PersistentCollection
+     * @return Collection|Goal[]
      */
-    public function getGoals(): PersistentCollection
+    public function getGoals(): Collection
     {
         return $this->goals;
     }
