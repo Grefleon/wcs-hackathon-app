@@ -16,6 +16,15 @@ body {
     font-size: $font-size-sm;
 }
 
+.return{
+    position: absolute;
+    z-index: 9;
+    top: $spacing;
+    a {
+        outline: none;
+    }
+}
+
 .module{
     border-radius: $spacing;
     padding: $spacing;
@@ -45,6 +54,19 @@ form label{
     border-radius: $spacing;
     font-family: $font-text;
     font-size: $font-size-sm;
+}
+
+.Quotidien{
+    background-color: #656f68;
+    color: var(--light);
+}
+
+.Cuisine{
+    background-color: #d78262;
+}
+
+.Vie{
+    background-color: #96d4c0;
 }
 
 @media screen and (min-width: 1000px) {
@@ -90,18 +112,5 @@ form label{
 
     .card-body{
         width: 12rem;
-    }
-
-    .Quotidien{
-        background-color: #656f68;
-        color: var(--light);
-    }
-
-    .Cuisine{
-        background-color: #d78262;
-    }
-
-    .Vie{
-        background-color: #96d4c0;
     }
 }
