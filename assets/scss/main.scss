@@ -85,6 +85,12 @@
         .edit{
             position: absolute;
             top: $spacing-s;
+            left: $spacing-s;
+        }
+
+        .logout{
+            position: absolute;
+            top: $spacing-s;
             right: $spacing-s;
         }
     }
