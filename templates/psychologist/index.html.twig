@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Smile - Psychologues{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('psyList') }}
+{% endblock %}
+
+{% block body %}
+    <section class="psyList">
+        <h2>Liste des psychologues à Orléans</h2>
+        <div class="return"><a href="{{ path('main') }}"><i class="fas fa-arrow-left"></i></a></div>
+        {% for psy in psys %}
+            <div class="psy d-flex flex-column justify-content-center align-content-center">
+                <img class="avatar" src="{{ psy.avatar }}" alt="{{ psy.name }}">
+                <h3>{{ psy.name }}</h3>
+                <p><i class="fas fa-map-marker-alt"></i>{{ psy.address }}</p>
+                <p><i class="fas fa-phone-alt"></i>{{ psy.phone }}</p>
+                <img class="rdv" src="/images/rdvDocto.webp" alt="rdv">
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
