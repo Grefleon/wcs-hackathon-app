@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Smile - Accueil{% endblock %}
+        {% block stylesheets %}
+            {{ parent() }}
+            {{ encore_entry_link_tags('home') }}
+        {% endblock %}
+{% block body %}
+    <main class="home">
+        <div class="ocean"></div>
+        <div class="waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        <div class="stars">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+        <div class="sky"></div>
+        <img src="/images/cloud.png" alt="cloud" class="cloud1">
+        <img src="/images/cloud.png" alt="cloud" class="cloud2">
+        <img src="/images/cloud.png" alt="cloud" class="cloud3">
+        <img src="/images/palm.png" alt="palm" class="palm">
+        <a href="{{ path('app_login') }}" class="login btn">Connexion</a>
+        <a href="{{ path('app_register') }}" class="signup btn btn-primary">S'inscrire</a>
+    </main>
+{% endblock %}

@@ -8,23 +8,32 @@
 {% endblock %}
 
 {% block body %}
-<div class="main-page container">
-    <div class="infos">
-        <h2>Mon profil</h2>
-        <div class="row justify-content-center">
-            <img class="col-8" src="{{ infos.avatar }}" alt="Avatar {{ infos.username }}">
-        </div>
-        <div class="row">
-            <div class="col-7 d-flex flex-column">
-                <p>{{ infos.username }}</p>
-                <p>{{ infos.email }}</p>
+    <section class="main-page container mb-2">
+        <div class="infos">
+            <div class="row flex-column justify-content-center align-items-center">
+                <div class="neu-avatar-box">
+                    <img class="avatar" src="{{ infos.avatar }}" alt="Avatar {{ infos.username }}">
+                </div>
+                <p class="level-box text-center">
+                    Niveau {{ infos.level }}
+                </p>
             </div>
-            <div class="col-5 d-flex flex-column">
-                <p>Niveau {{ infos.level }}</p>
-                <p>{{ infos.experience }} exp</p>
+            <div class="row flex-column text-center">
+                <h2>{{ infos.username }}</h2>
+                <p class="info-email">{{ infos.email }}</p>
             </div>
-        </div>
+            <a class="edit" href="{{ path('user_edit', {'id': infos.id }) }}">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </a>
 
-    </div>
-</div>
+        </div>
+    </section>
+    <section class="exp container">
+        <div class="experiences">
+            <h2>Points d'expérience : {{ infos.experience }}</h2>
+            <div class="progress"><p>{{ infos.experience != 0 ? (infos.experience / 1000) * 100 : '0' }}%</p>
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: {{ infos.experience != 0 ? (infos.experience / 1000) * 100 : '0' }}%" aria-valuenow="{{ infos.experience != 0 ? 1000 / infos.experience * 100 : '0' }}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

@@ -10,10 +10,10 @@
 .module{
     display: flex;
     flex-direction: column;
+    background-color: $white-50;
 }
 
 .info{
-    margin: 0;
     flex-direction: column;
     margin: auto;
     align-items: center;
