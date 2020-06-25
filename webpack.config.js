@@ -26,6 +26,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('moodTest', './assets/js/moodTest.js')
     .addStyleEntry('home', './assets/scss/home.scss')
+    .addStyleEntry('psyList', './assets/scss/psyList.scss')
     .addStyleEntry('login', './assets/scss/login.scss')
     .addStyleEntry('main', './assets/scss/main.scss')
     .addStyleEntry('goal', './assets/scss/goal.scss')
