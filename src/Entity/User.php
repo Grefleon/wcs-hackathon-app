@@ -6,6 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -21,7 +22,14 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=180, unique=true)\N
+     * @Assert\NotBlank(
+     *     message="Veuillez indiquer un nom d'utilisateur"
+     * )
+     * @Assert\Length(
+     *     max = 180,
+     *     maxMessage="Veuillez indiquer un nom d'utilisateur inférieur à 180 caractères"
+     * )
      */
     private $username;
 
@@ -38,6 +46,12 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *     message="Veuillez indiquer une adresse mail valide"
+     * )
+     * @Assert\NotBlank(
+     *     message="Veuillez indiquer une adresse mail"
+     * )
      */
     private $email;
 

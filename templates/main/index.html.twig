@@ -22,6 +22,9 @@
                 <h2>{{ infos.username }}</h2>
                 <p class="info-email">{{ infos.email }}</p>
             </div>
+            <a class="edit" href="{{ path('user_edit', {'id': infos.id }) }}">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </a>
 
         </div>
     </section>
