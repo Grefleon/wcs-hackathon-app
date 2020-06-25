@@ -22,104 +22,25 @@ body{
 			border-radius: 50%;
 		}
 
-		.boat {
-
-			*:before, *:after {
-				content: '';
+		.waves{
+			.wave{
+				background: white;
 				position: absolute;
+				z-index: 3;
+				width: 100px;
+				height: 20px;
+				clip-path: ellipse(43% 2% at 50% 52%);
+				transform: rotate(25deg);
 			}
 
-			position: absolute;
-			height: 150px;
-			width: 120px;
-			z-index: 3;
-			&:after {
-				// background-color: #6d1e5a;
-				background-image: linear-gradient(to bottom, #6d1e5a 0%, transparent 100%);
-				bottom: -149px;
-				width: 95%;
-				height: 150px;
-				left: -10%;
-				-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-				clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+			& > :nth-child(1){
+				top: 45vh;
+				left: 30vw;
 			}
-			.boat-bottom {
-				bottom: 0;
-				left: 0;
-				-webkit-clip-path: polygon(0 70%, 100% 70%, 85% 100%, 15% 100%);
-				clip-path: polygon(0 70%, 100% 70%, 85% 100%, 15% 100%);
-				background-color: #7c276a;
-				width: 100%;
-				height: 100px;
-				&:before {
-					left: 0;
-					bottom: 0;
-					height: 100%;
-					width: 50%;
-					background-color: #853073;
-				}
-				&:after {
-					background-color: #7c276a;
-					width: 50%;
-					height: 10px;
-					left: 0;
-					bottom: 10px;
-				}
-				.squares {
-					width: 100%;
-					height: 8px;
-					bottom: 20px;
-					left: 2px;
-				}
-				.square {
-					background-color: #ffad54;
-					width: 5px;
-					height: 5px;
-					bottom: 0;
-				}
-				.square:nth-of-type(1) {
-					left: 10px;
-				}
-				.square:nth-of-type(2) {
-					left: 40px;
-				}
-				.square:nth-of-type(3) {
-					left: 70px;
-				}
-				.square:nth-of-type(4) {
-					left: 100px;
-				}
-			}
-			.boat-behind {
-				width: 40px;
-				height: 10px;
-				background-color: #621352;
-				bottom: 30px;
-				left: 40px;
-				&:after {
-					width: 50%;
-					height: 100%;
-					left: 0;
-					background-color: #711b5f;
-				}
-			}
-			.boat-top-left {
-				background-color: #f4845a;
-				-webkit-clip-path: polygon(0% 100%, 50% 0%, 50% 100%);
-				clip-path: polygon(0% 100%, 50% 0%, 50% 100%);
-				width: 95%;
-				height: 75%;
-				bottom: 37px;
-			}
-			.boat-top-right {
-				right: 0;
-				bottom: 37px;
-				width: 95%;
-				height: 60%;
-				background-color: #e87255;
-				z-index: 33;
-				clip-path: polygon(0% 100%, 50% 0%, 50% 100%);
-				transform: scaleX(-1);
+
+			& > :nth-child(2){
+				top: 40vh;
+				left: 45vw;
 			}
 		}
 
@@ -127,15 +48,17 @@ body{
 			position: absolute;
 			width: 75px;
 			opacity: 0.8;
+			animation: infinite cloudMove 50s;
+			z-index: 5;
 		}
 
 		.cloud2{
-			top: 50px;
+			top: 75px;
 			left: 75px;
 		}
 
 		.cloud3{
-			top: 25px;
+			top: 50px;
 			left: 150px
 		}
 
@@ -144,13 +67,70 @@ body{
 			bottom: 20vh;
 			left: -50px;
 		}
+
+		.login{
+			font-size: 20px;
+			position: absolute;
+			right:0;
+			margin: $spacing-s;
+			z-index: 6;
+			color: white;
+		}
+
+		.signup{
+			font-size: 24px;
+			position: absolute;
+			top: 80vh;
+			left: 60%;
+			z-index: 4;
+			background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+			border: solid 1px #377eb4;
+		}
+	}
+}
+
+.stars {
+	height: 100%;
+	& > * {
+		border-radius: 50px;
+		background: #fee140;
+		animation: twinkle 7s infinite;
+		transition-timing-function: ease-in-out;
+	}
+	@for $i from 1 through (30) {
+		$top: random(20)+5vh;
+		$left: random(100)+vw;
+		$size: random(6)+0px;
+		.star:nth-of-type(#{$i}) {
+			position: absolute;
+			z-index: 5;
+			opacity: 0.7;
+			top: $top;
+			left: $left;
+			width: $size;
+			height: $size;
+			animation-delay: random(5) + s;
+		}
+	}
+}
+
+@keyframes twinkle {
+	0% {
+		opacity: 0.7;
+	}
+	50% {
+		opacity: 0.1;
+	}
+	100% {
+		opacity: 0.7;
 	}
 }
 
 @keyframes cloudMove{
-	from{
-
-	}to{
-
-	 }
+	0% {
+		transform: translateX(-300%)
+	}
+	100% {
+		transform: translateX(500%)
+	}
 }
