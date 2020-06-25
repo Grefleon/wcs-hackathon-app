@@ -1,0 +1,25 @@
+@import "vars";
+
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 90vh;
+}
+
+.module{
+    display: flex;
+    flex-direction: column;
+    background-color: $white-50;
+}
+
+.info{
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    vertical-align: center;
+    p{
+        margin: 0;
+    }
+}

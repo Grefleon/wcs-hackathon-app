@@ -1,0 +1,69 @@
+@import "vars";
+.exp{
+    padding-bottom: $spacing;
+    background-color: $light;
+    border-radius: $spacing;
+    width: 90%;
+}
+.experiences h2{
+    font-size: $font-size-sm;
+    text-align: left;
+    padding-top: $spacing;
+}
+.progress{
+    height: $spacing;
+    background-color: $primary;
+    width: 100%;
+    p {
+        padding-top: $spacing - 1px;
+        font-weight: 800;
+        color: $light;
+    }
+}
+.main-page{
+    border-radius: $spacing;
+    background-color: $light;
+    padding: $spacing;
+    width: 90%;
+    margin: $spacing auto auto;
+
+    .infos{
+        word-break: break-word;
+        font-size: 24px;
+
+
+        .neu-avatar-box{
+            border-radius: 50%;
+            background: linear-gradient(45deg, #cee6de, #f5ffff);
+            box-shadow:  7px -7px 14px #c3d9d2,
+            -7px 7px 14px #ffffff;
+            width: 120px;
+            height: 120px;
+            margin-top: $spacing;
+            padding: 10px;
+            .avatar{
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+            }
+        }
+
+        .level-box{
+            padding: $spacing-s;
+            line-height: 0.75em;
+            font-size: 0.75em;
+            .small{
+                font-size: 0.75em;
+            }
+        }
+
+        h2{
+            margin-top: $spacing;
+            font-size: 32px;
+        }
+
+        .info-email{
+            font-size: 0.75em;
+        }
+    }
+}
