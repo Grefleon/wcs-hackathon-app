@@ -36,12 +36,17 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
+            $user->setUsername($form->get('username')->getData());
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
+            $user->setEmail($form->get('email')->getData());
+            $user->setAvatar();
+            $user->setExperience();
+            $user->setLevel();
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
