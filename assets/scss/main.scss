@@ -84,7 +84,6 @@ div.experiences{
         font-size: 24px;
         position: relative;
 
-
         .neu-avatar-box{
             border-radius: 50%;
             background: linear-gradient(45deg, #cee6de, #f5ffff);
@@ -142,7 +141,7 @@ div.experiences{
     padding: $spacing;
     width: 90%;
     margin-top: $spacing;
-  
+
     h2{
         font-size: 32px;
     }
@@ -183,13 +182,37 @@ div.experiences{
     }
 }
 
+.listPsycho{
+    display: none;
+    position: absolute;
+    z-index: 8;
+    border-radius: $spacing;
+    background-color: $light;
+    padding: $spacing;
+    width: 90%;
+    margin: $spacing auto auto;
+    top:$spacing;
+    left: $spacing;
+
+    button{
+        margin: $spacing-xs;
+    }
+
+    a{
+        border-radius: $spacing;
+        font-family: $font-text;
+        font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+        margin: $spacing-xs;
+        color: white;
+    }
+}
+
 .bgMood{
     position: absolute;
     top:0;
     left:0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.5);
     width: 100%;
-    height: 110%;
+    height: 100%;
     z-index: 7;
-    margin-top: $spacing;
 }
