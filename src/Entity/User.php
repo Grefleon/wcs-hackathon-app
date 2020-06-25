@@ -3,15 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use App\Service\LevelManager;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\JoinColumn;
-use Doctrine\ORM\PersistentCollection;
-use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -20,16 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface
 {
-    /**
-     * @var Security
-     */
-    private $security;
-
-    /**
-     * @var ObjectManager
-     */
-    private $manager;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -106,12 +90,10 @@ class User implements UserInterface
      */
     private $experienceList;
 
-    public function __construct(Security $security, ObjectManager $manager)
+    public function __construct()
     {
         $this->goals = new ArrayCollection();
         $this->experienceList = new ArrayCollection();
-        $this->security = $security;
-        $this->manager = $manager;
     }
 
     public function getId(): ?int
@@ -206,8 +188,6 @@ class User implements UserInterface
 
     public function setExperience(int $experience = 0): self
     {
-        $level = new LevelManager();
-        $level->check($this, $this->manager);
         $this->experience = $experience;
 
         return $this;
@@ -268,8 +248,8 @@ class User implements UserInterface
 
     public function removeGoal(Goal $goal): self
     {
-        if ($this->Goals->contains($goal)) {
-            $this->Goals->removeElement($goal);
+        if ($this->goals->contains($goal)) {
+            $this->goals->removeElement($goal);
         }
 
         return $this;
@@ -297,6 +277,8 @@ class User implements UserInterface
         if ($this->experienceList->contains($experienceList)) {
             $this->experienceList->removeElement($experienceList);
         }
+
+        return $this;
     }
   
     public function getMoodTest(): ?bool
