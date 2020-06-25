@@ -46,7 +46,10 @@
                 <p class="card-subtitle mb-2">{{ goal.goal }}</p>
                 <div><i class="far fa-grin"></i></div>
             </div>
+        {% else %}
+            <p class="no-goal text-center">Pas d'objectif en cours :(</p>
         {% endfor %}
+
         <a class="btn btn-primary btn-block btn-lg" href="{{ path('goal_index') }}">Gérer mes objectifs</a>
     </div>
     {% if infos.moodTest %}
