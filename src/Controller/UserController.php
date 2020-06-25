@@ -20,6 +20,11 @@ class UserController extends AbstractController
      */
     public function edit(Request $request, User $user): Response
     {
+        $auth = $this->getUser();
+        if ($user->getUsername() != $auth->getUsername()) {
+            return $this->redirectToRoute('main');
+        }
+
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
