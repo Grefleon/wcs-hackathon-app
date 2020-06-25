@@ -13,7 +13,7 @@ class GoalSectionFixtures extends Fixture
     const SECTIONS = [
         'Quotidien' => 'fas fa-home',
         'Cuisine'=> 'fas fa-carrot',
-        'Vie Social' => 'fas fa-users',
+        'Vie sociale' => 'fas fa-users',
     ];
 
     public function load(ObjectManager $manager)

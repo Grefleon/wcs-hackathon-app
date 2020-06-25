@@ -90,10 +90,16 @@ class User implements UserInterface
      */
     private $experienceList;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=GoalSection::class, inversedBy="users")
+     */
+    private $interests;
+
     public function __construct()
     {
         $this->goals = new ArrayCollection();
         $this->experienceList = new ArrayCollection();
+        $this->interests = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -289,6 +295,32 @@ class User implements UserInterface
     public function setMoodTest(bool $moodTest): self
     {
         $this->moodTest = $moodTest;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|GoalSection[]
+     */
+    public function getInterests(): Collection
+    {
+        return $this->interests;
+    }
+
+    public function addInterest(GoalSection $interest): self
+    {
+        if (!$this->interests->contains($interest)) {
+            $this->interests[] = $interest;
+        }
+
+        return $this;
+    }
+
+    public function removeInterest(GoalSection $interest): self
+    {
+        if ($this->interests->contains($interest)) {
+            $this->interests->removeElement($interest);
+        }
 
         return $this;
     }
