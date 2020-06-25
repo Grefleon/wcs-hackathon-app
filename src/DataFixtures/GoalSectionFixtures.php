@@ -11,16 +11,18 @@ class GoalSectionFixtures extends Fixture
 {
 
     const SECTIONS = [
-        'Paix',
-        'Cuisine',
+        'Quotidien' => 'fas fa-home',
+        'Cuisine'=> 'fas fa-carrot',
+        'Vie Social' => 'fas fa-users',
     ];
 
     public function load(ObjectManager $manager)
     {
         $key=1;
-        foreach (self::SECTIONS as $sectionName){
+        foreach (self::SECTIONS as $sectionName => $sectionIcon){
             $section = new goalSection();
             $section->setName($sectionName);
+            $section->setIcon($sectionIcon);
             $this->addReference('section_' . $key, $section);
             $key++;
             $manager->persist($section);
