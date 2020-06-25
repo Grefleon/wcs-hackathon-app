@@ -1,5 +1,25 @@
 @import "vars";
-
+.exp{
+    padding-bottom: $spacing;
+    background-color: $light;
+    border-radius: $spacing;
+    width: 90%;
+}
+.experiences h2{
+    font-size: $font-size-sm;
+    text-align: left;
+    padding-top: $spacing;
+}
+.progress{
+    height: $spacing;
+    background-color: $primary;
+    width: 100%;
+    p {
+        padding-top: $spacing - 1px;
+        font-weight: 800;
+        color: $light;
+    }
+}
 .main-page{
     border-radius: $spacing;
     background-color: $light;

@@ -151,6 +151,16 @@ class User implements UserInterface
         return $this->experience;
     }
 
+    public function addExperience(int $experience): self
+    {
+        $this->experience = $this->getExperience() + $experience;
+        if ($this->experience >= 1000) {
+            $this->level = $this->getLevel() + 1;
+            $this->experience = 0;
+        }
+        return $this;
+    }
+
     public function setExperience(int $experience = 0): self
     {
         $this->experience = $experience;

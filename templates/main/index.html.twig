@@ -8,22 +8,29 @@
 {% endblock %}
 
 {% block body %}
-<div class="main-page container">
-    <div class="infos">
-        <div class="row flex-column justify-content-center align-items-center">
-            <div class="neu-avatar-box">
-                <img class="avatar" src="{{ infos.avatar }}" alt="Avatar {{ infos.username }}">
+    <section class="main-page container mb-2">
+        <div class="infos">
+            <div class="row flex-column justify-content-center align-items-center">
+                <div class="neu-avatar-box">
+                    <img class="avatar" src="{{ infos.avatar }}" alt="Avatar {{ infos.username }}">
+                </div>
+                <p class="level-box text-center">
+                    Niveau {{ infos.level }}
+                </p>
             </div>
-            <p class="level-box text-center">
-                Niveau {{ infos.level }}<br />
-                <span class="small">{{ infos.experience }} exp</span>
-            </p>
-        </div>
-        <div class="row flex-column text-center">
-            <h2>{{ infos.username }}</h2>
-            <p class="info-email">{{ infos.email }}</p>
-        </div>
+            <div class="row flex-column text-center">
+                <h2>{{ infos.username }}</h2>
+                <p class="info-email">{{ infos.email }}</p>
+            </div>
 
-    </div>
-</div>
+        </div>
+    </section>
+    <section class="exp container">
+        <div class="experiences">
+            <h2>Points d'expérience : {{ infos.experience }}</h2>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary-shadow" role="progressbar" aria-valuenow="{{ infos.experience }}" aria-valuemin="0" aria-valuemax="100"><p>{{ infos.experience }}%</p></div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
