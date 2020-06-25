@@ -97,6 +97,11 @@ class User implements UserInterface
     private $goals;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $moodTest;
+  
+    /**
      * @ORM\ManyToMany(targetEntity=ExperienceList::class)
      */
     private $experienceList;
@@ -292,6 +297,16 @@ class User implements UserInterface
         if ($this->experienceList->contains($experienceList)) {
             $this->experienceList->removeElement($experienceList);
         }
+    }
+  
+    public function getMoodTest(): ?bool
+    {
+        return $this->moodTest;
+    }
+
+    public function setMoodTest(bool $moodTest): self
+    {
+        $this->moodTest = $moodTest;
 
         return $this;
     }
