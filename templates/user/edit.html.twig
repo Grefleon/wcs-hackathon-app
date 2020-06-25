@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier mes infos{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('login') }}
+{% endblock %}
+
+{% block body %}
+    <section class="login container">
+        <div>
+            {% for flashError in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            {% endfor %}
+
+            <h1>Modifier mes infos</h1>
+
+            <div class="module mb-4">
+                {{ include('user/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+                <a class="btn btn-danger mt-2" href="{{ path('main') }}">Retour</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

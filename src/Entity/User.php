@@ -3,8 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -19,7 +22,14 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=180, unique=true)\N
+     * @Assert\NotBlank(
+     *     message="Veuillez indiquer un nom d'utilisateur"
+     * )
+     * @Assert\Length(
+     *     max = 180,
+     *     maxMessage="Veuillez indiquer un nom d'utilisateur inférieur à 180 caractères"
+     * )
      */
     private $username;
 
@@ -36,6 +46,12 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *     message="Veuillez indiquer une adresse mail valide"
+     * )
+     * @Assert\NotBlank(
+     *     message="Veuillez indiquer une adresse mail"
+     * )
      */
     private $email;
 
@@ -53,6 +69,32 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $avatar;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isVerified = false;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Goal::class)
+     */
+    private $goals;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $moodTest;
+  
+    /**
+     * @ORM\ManyToMany(targetEntity=ExperienceList::class)
+     */
+    private $experienceList;
+
+    public function __construct()
+    {
+        $this->goals = new ArrayCollection();
+        $this->experienceList = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -171,6 +213,82 @@ class User implements UserInterface
     public function setAvatar(string $avatar = "/images/default.png"): self
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Goal[]
+     */
+    public function getGoals(): Collection
+    {
+        return $this->goals;
+    }
+
+    public function addGoal(Goal $goal): self
+    {
+        if (!$this->goals->contains($goal)) {
+            $this->goals[] = $goal;
+        }
+
+        return $this;
+    }
+
+    public function removeGoal(Goal $goal): self
+    {
+        if ($this->goals->contains($goal)) {
+            $this->goals->removeElement($goal);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ExperienceList[]
+     */
+    public function getExperienceList(): Collection
+    {
+        return $this->experienceList;
+    }
+
+    public function addExperienceList(ExperienceList $experienceList): self
+    {
+        if (!$this->experienceList->contains($experienceList)) {
+            $this->experienceList[] = $experienceList;
+        }
+
+        return $this;
+    }
+
+    public function removeExperienceList(ExperienceList $experienceList): self
+    {
+        if ($this->experienceList->contains($experienceList)) {
+            $this->experienceList->removeElement($experienceList);
+        }
+
+        return $this;
+    }
+  
+    public function getMoodTest(): ?bool
+    {
+        return $this->moodTest;
+    }
+
+    public function setMoodTest(bool $moodTest): self
+    {
+        $this->moodTest = $moodTest;
 
         return $this;
     }

@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Smile{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('main') }}
+{% endblock %}
+
+{% block body %}
+    <section class="main-page container">
+        <div class="infos">
+            <div class="row flex-column justify-content-center align-items-center">
+                <div class="neu-avatar-box">
+                    <img class="avatar" src="{{ infos.avatar }}" alt="Avatar {{ infos.username }}">
+                </div>
+                <p class="level-box text-center">
+                    Niveau {{ infos.level }}
+                </p>
+            </div>
+            <div class="row flex-column text-center">
+                <h2>{{ infos.username }}</h2>
+            </div>
+            <a class="edit" href="{{ path('user_edit', {'id': infos.id }) }}">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </a>
+            <a class="logout" href="{{ path('app_logout')}}">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        </div>
+    </section>
+    <section class="exp container">
+        <a href="{{ path('experiences') }}">
+            <div class="experiences">
+                <h2>Expérience</h2>
+                <div class="progress"><p class="percent">{{ infos.experience != 0 ? (infos.experience / 1000) * 100 : '0' }}%</p>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ infos.experience != 0 ? (infos.experience / 1000) * 100 : '0' }}%" aria-valuenow="{{ infos.experience != 0 ? 1000 / infos.experience * 100 : '0' }}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p>{{ 1000 - infos.experience }} points nécessaire avant le niveau {{ infos.level + 1 }}</p>
+            </div>
+        </a>
+    </section>
+    <div class="goals container">
+        <h2>Objectifs en cours</h2>
+        {% for goal in infos.goals %}
+            <div class="card mb-2 text-center {{ goal.section.name }}">
+                <strong class="card-title"><i class="mr-2 {{ goal.section.icon }}"></i>{{ goal.section.name }}</strong>
+                <p class="card-subtitle mb-2">{{ goal.goal }}</p>
+                <div><i class="far fa-grin"></i></div>
+            </div>
+        {% else %}
+            <p class="no-goal text-center">Pas d'objectif en cours :(</p>
+        {% endfor %}
+
+        <a class="btn btn-primary btn-block btn-lg" href="{{ path('goal_index') }}">Gérer mes objectifs</a>
+    </div>
+    {% if infos.moodTest %}
+        <div class="bgMood" id="bgMood"></div>
+        <section class="moodTest container" id="moodTest">
+            <h3>Exprimez-vous</h3>
+            <textarea placeholder="Ma journée s'est elle bien passée ?"></textarea>
+            <p class="text-muted">Nb: Ce message n'est pas enregistré</p>
+            <div class="row justify-content-center align-content-center">
+                <button class="btn btn-primary" id="happyBtn"><i class="far fa-smile-beam"></i></button>
+                <button class="btn btn-primary" id="sadBtn"><i class="far fa-frown"></i></button>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('moodTest') }}
+{% endblock %}

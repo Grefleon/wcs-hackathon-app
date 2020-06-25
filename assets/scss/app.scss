@@ -1,37 +1,116 @@
 @import "vars";
 @import "~bootstrap/scss/bootstrap";
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@400;600;700&display=swap');
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/v4-shims";
 
 body {
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     background-color: $secondary-shadow;
     font-family: $font-text;
-    font-size: $font-size;
+    font-size: $font-size-sm;
 }
+
+.return{
+    position: absolute;
+    z-index: 9;
+    top: $spacing;
+    a {
+        outline: none;
+    }
+}
+
+.module{
+    border-radius: $spacing;
+    padding: $spacing;
+    margin: auto;
+}
+
 h1, h2, h3, h4, h5, h6{
     font-family: $font-title;
-    font-size: $font-size-title;
+    font-size: $font-size-title-sm;
+    text-align: center;
+    position: relative;
+    z-index: 7;
 }
+
 .form-control{
     border-radius: $spacing;
     font-family: $font-text;
-    font-size: $font-size;
-    height: calc(100px + (120 - 100) * ((100vw - 300px) / (1600 - 300)));
+    font-size: $font-size-sm;
+    font-weight: 400;
 }
-input[type="checkbox"]{
-    height: 8vh;
+
+form label{
+    font-weight: 600;
 }
+
 .btn{
     border-radius: $spacing;
     font-family: $font-text;
-    font-size: $font-size;
+    font-size: $font-size-sm;
 }
-.module{
-    width: calc(100vw - 100px);
-    height: calc(100vh - 100px);
-    background-color: $light;
-    padding: 20px;
-    margin: auto;
+
+.Quotidien{
+    background-color: #656f68;
+    color: var(--light);
+}
+
+.Cuisine{
+    background-color: #d78262;
+}
+
+.Vie{
+    background-color: #96d4c0;
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        width: 100vw;
+        height: 90vh;
+        background-color: $secondary-shadow;
+        font-family: $font-text;
+        font-size: $font-size;
+    }
+
+    .module{
+        max-width: 30vw;
+        border-radius: $spacing;
+        padding: $spacing;
+        margin: auto;
+        position: relative;
+        z-index: 7;
+    }
+
+    h1, h2, h3, h4, h5, h6{
+        font-family: $font-title;
+        font-size: $font-size-title;
+        text-align: center;
+    }
+
+    .form-control{
+        border-radius: $spacing;
+        font-family: $font-text;
+        font-size: $font-size;
+        font-weight: 400;
+    }
+
+    form label{
+        font-weight: 600;
+    }
+
+    .btn{
+        border-radius: $spacing;
+        font-family: $font-text;
+        font-size: $font-size;
+    }
+
+    .card-body{
+        width: 12rem;
+    }
 }

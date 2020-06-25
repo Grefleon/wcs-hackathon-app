@@ -1,9 +1,12 @@
 $font-title: 'Bubblegum Sans', cursive;
 $font-text: 'Quicksand', sans-serif;
-$font-size: calc(80px + (90 - 80) * ((100vw - 300px) / (1600 - 300)));
-$font-size-sub-title: calc(24px + (36 - 24) * ((100vw - 300px) / (1600 - 300)));
-$font-size-title: calc(160px + (150 - 160) * ((100vw - 300px) / (1600 - 300)));
-$font-size-h1: calc(54px + (66 - 54) * ((100vw - 300px) / (1600 - 300)));
+
+$font-size-sm: calc(16px + 6 * ((100vw - 320px) / 680));
+$font-size-sub-title-sm: calc(24px + 6 * ((100vw - 320px) / 680));
+$font-size-title-sm: calc(48px + 6 * ((100vw - 320px) / 680));
+$font-size: 22px;
+$font-size-sub-title: 36px;
+$font-size-title: 48px;
 
 $spacing: 16px;
 $spacing-xs: $spacing / 4;
@@ -18,7 +21,7 @@ $secondary-shadow: #F28F48;
 $success: #89cd65;
 $danger: #cd6965;
 $warning: #cd9e65;
-$info: #28BCAA;
+$info: #28a6bc;
 $light: #e5fff7;
 $dark: #023123;
 $body: #011c14;

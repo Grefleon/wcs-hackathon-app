@@ -2,13 +2,52 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" type="image/png" href="/images/default.png" />
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_link_tags('home') }}
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <main class="home">
+        <div class="ocean"></div>
+        <div class="waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        <div class="stars">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+        <div class="sky"></div>
+        <img src="/images/cloud.png" alt="cloud" class="cloud1">
+        <img src="/images/cloud.png" alt="cloud" class="cloud2">
+        <img src="/images/cloud.png" alt="cloud" class="cloud3">
+        <img src="/images/palm.png" alt="palm" class="palm">
+        {% block body %}
+
+        {% endblock %}
+    </main>
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
