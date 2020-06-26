@@ -5,6 +5,8 @@
     flex-direction: column;
     justify-content: space-around;
     height: 90vh;
+    position: relative;
+    z-index: 10;
 }
 
 .module{

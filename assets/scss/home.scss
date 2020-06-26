@@ -69,9 +69,11 @@ body{
 			left: -50px;
 		}
 
-		.login{
+		.loginLink{
 			font-size: 20px;
 			position: absolute;
+			right: $spacing;
+			top: $spacing;
 			z-index: 6;
 			color: white;
 		}
@@ -85,6 +87,15 @@ body{
 			background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 			border: solid 1px #377eb4;
 		}
+
+		.smile{
+			position: absolute;
+			top: $spacing;
+			left: $spacing;
+			width: 100px;
+			height: 100px;
+		}
+
 	}
 }
 
