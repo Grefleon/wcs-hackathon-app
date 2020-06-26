@@ -3,6 +3,7 @@
 body{
 	overflow-x: hidden;
 	background-image: linear-gradient(to bottom, #fa709a 0%, #fee140 100%);
+	background-repeat: no-repeat;
 	min-height: 100vh;
 
 	.home {
@@ -64,7 +65,7 @@ body{
 
 		.palm{
 			position: absolute;
-			bottom: 20vh;
+			top: 50vh;
 			left: -50px;
 		}
 
