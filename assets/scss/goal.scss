@@ -86,15 +86,19 @@ a, a:hover {
 }
 
 .Quotidien{
-  background-color: #00cdff;
+    background-color: #00cdff;
+    box-shadow: inset 8px 8px 18px #00b6e3,
+    inset -8px -8px 18px #00e4ff;
 }
 
 .Cuisine{
   background-color: #d78262;
 }
 
-.Sociale{
-  background-color: #96d4c0;
+.Social{
+    background-color: #fffb00;
+    box-shadow: inset 8px 8px 18px #e3df00,
+    inset -8px -8px 18px #ffff00;
 }
 
 .Sport{
@@ -102,8 +106,9 @@ a, a:hover {
 }
 
 .Musique {
-    background-color: #c591cb;
-}
+    background-color: #4cff00;
+    box-shadow: inset 8px 8px 18px #44e300,
+    inset -8px -8px 18px #54ff00;}
 
 .Video {
     background-color: #d9d9a9;
@@ -115,12 +120,6 @@ a, a:hover {
 
 .Web{
   background-color: #96a0d4;
-}
-
-main{
-    h2{
-        color: $light;
-    }
 }
 
 .module {

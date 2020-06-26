@@ -17,7 +17,7 @@ class GoalSectionFixtures extends Fixture
         'Sport' => 'fas fa-basketball-ball',
         'Musique' => 'fas fa-music',
         'Jeux Video' => 'fas fa-gamepad',
-        'Developpement Web' => 'fas fa-laptop-code',
+        'Dev Web' => 'fas fa-laptop-code',
         'Science' => 'fas fa-microscope',
         'Autre' => 'far fa-grin-alt',
     ];
