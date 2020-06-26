@@ -1,26 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Goal{% endblock %}
-
+{% block title %}Modifier l'objectif{% endblock %}
+        {% block stylesheets %}
+            {{ parent() }}
+            {{ encore_entry_link_tags('goal') }}
+        {% endblock %}
 {% block body %}
-    <h1>Goal</h1>
+    <section class="container goalShow">
+        <div class="return"><a href="{{ path('goal_index') }}"><i class="fas fa-arrow-left"></i></a></div>
+        <h2>Objectif</h2>
+        <div class="module">
+            <div class="goalNow mb-2 text-center {{ goal.section.name }}">
+                <i class="left {{ goal.section.icon }}"></i>
+                <a class="mb-1 middle">
+                    <p>
+                        {{ goal.name }}
+                    </p>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ goal.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ goal.name }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('goal_index') }}">back to list</a>
-
-    <a href="{{ path('goal_edit', {'id': goal.id}) }}">edit</a>
-
-    {{ include('goal/_delete_form.html.twig') }}
+                </a>
+                <a class="right">
+                    <i class="far fa-grin"></i>
+                </a>
+            </div>
+            <div class="module row text-center">
+                <a class="btn col bg-primary">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier
+                </a>
+                <a href="{{ path('goal_remove', {'id': goal.id }) }}" class="btn col bg-secondary">
+                    <i class="fas fa-calendar-times"></i>Retirer
+                </a>
+                <a class="btn col bg-danger">
+                    <i class="far fa-trash-alt"></i>Supprimer
+                </a>
+            </div>
+        </div>
+    </section>
 {% endblock %}
