@@ -144,3 +144,9 @@ body{
 		transform: translateX(500%)
 	}
 }
+
+.btn-primary {
+	background: linear-gradient(45deg, #07af7e, #06946a);
+	box-shadow:  2px -2px 10px #053d2c,
+	-2px 2px 10px #bddbd2;
+}

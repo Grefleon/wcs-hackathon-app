@@ -30,10 +30,10 @@
         </section>
         <section class="module">
             <h3>Définir d'autres objectifs</h3>
-            {% for goalSection in goalSectionRepository %}
-                <div class="card mb-2 text-center {{ goalSection.name }}">
-                    <strong class="card-title"><i class="mr-2 {{ goalSection.icon }}"></i>{{ goalSection.name }}</strong>
-                    {% for goal in goalSection.goals %}
+            {% for userInterest in userInterests %}
+                <div class="card mb-2 text-center {{ userInterest.name }}">
+                    <strong class="card-title"><i class="mr-2 {{ userInterest.icon }}"></i>{{ userInterest.name }}</strong>
+                    {% for goal in userInterest.goals %}
                         <a class="row goalNow card-subtitle adding my-1" href="{{ path("goal_set", {'id': goal.id}) }}">
                             <i class="left fas fa-plus-circle text-primary"></i>
                             <p class="middle my-1">{{ goal.name }}</p>
