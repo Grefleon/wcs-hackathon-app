@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Goal;
 use App\Entity\GoalSection;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use App\Service\InterestManager;
+use App\Service\LevelManager;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -107,5 +109,26 @@ class UserController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('user_interests');
+    }
+
+    /**
+     * @Route("/valid/{id}", name="validate")
+     * @param Goal $goal
+     * @param LevelManager $levelManager
+     * @return RedirectResponse
+     */
+    public function validateTask(Goal $goal, LevelManager $levelManager)
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $this->getUser()->getUsername()]);
+        $user->setExperience($user->getExperience() + 500);
+        $user->removeGoal($goal);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($levelManager->check($user));
+        $entityManager->flush();
+
+        return $this->redirectToRoute('main');
     }
 }
