@@ -92,35 +92,51 @@ a, a:hover {
 }
 
 .Cuisine{
-  background-color: #ef9e7d;
+    background-color: #ef9e7d;
+    box-shadow: inset 8px 8px 18px #cb866a,
+    inset -8px -8px 18px #ffb690;
 }
 
 .Social{
-  background-color: #8ff6d5;
+    background-color: #8ff6d5;
+    box-shadow: inset 8px 8px 18px #7ad1b5,
+    inset -8px -8px 18px #a4fff5;
 }
 
 .Sport{
   background-color: #f58f4d;
+    box-shadow: inset 8px 8px 18px #d07a41,
+    inset -8px -8px 18px #ffa459;
 }
 
 .Musique {
     background-color: #e876f5;
+    box-shadow: inset 8px 8px 18px #c564d0,
+    inset -8px -8px 18px #ff88ff;
 }
 
 .Video {
     background-color: #fafa81;
+    box-shadow: inset 8px 8px 18px #d5d56e,
+    inset -8px -8px 18px #ffff94;
 }
 
 .Science{
   background-color: #49f3df;
+    box-shadow: inset 8px 8px 18px #3ecfbe,
+    inset -8px -8px 18px #54ffff;
 }
 
 .Web{
   background-color: #a3b0f5;
+    box-shadow: inset 8px 8px 18px #8b96d0,
+    inset -8px -8px 18px #bbcaff;
 }
 
 .Autre{
     background-color: #dceee6;
+    box-shadow: inset 8px 8px 18px #bbcac4,
+    inset -8px -8px 18px #fdffff;
 }
 
 .module {
