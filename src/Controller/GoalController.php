@@ -32,7 +32,6 @@ class GoalController extends AbstractController
         $userGoals = $this->getDoctrine()
             ->getRepository(User::class)
             ->findOneByUsername($this->getUser()->getUsername());
-        $actualGoals = $userGoals->getGoals();
         $remainingGoals = $goalSectionRepository->findAll();
         foreach ($remainingGoals as $remainingGoal) {
             foreach ($userGoals->getGoals() as $key => $goal) {
@@ -80,7 +79,7 @@ class GoalController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $goal->setCreator($user);
+            $goal->setCreatorId($actuallyUser);
             $entityManager->persist($goal);
             $entityManager->flush();
             return $this->redirectToRoute('goal_index');

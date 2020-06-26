@@ -12,7 +12,7 @@
         <section class="module mb-2">
             <h3>En cours</h3>
             {% for goal in userGoals.goals %}
-                {% if goal.creator is null or goal.creator.id == userGoals.id %}
+                {% if goal.creatorid is null or goal.creatorid == userGoals.id %}
                 <div class="goalNow mb-2 text-center {{ goal.section.name }}">
                     <i class="left {{ goal.section.icon }}"></i>
                     <a class="mb-1 middle" href="{{ path('goal_show', {'id': goal.id}) }}">

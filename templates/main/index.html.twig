@@ -56,7 +56,7 @@
             <div class="card mb-2 text-center {{ goal.section.name }}">
                 <strong class="card-title"><i class="mr-2 {{ goal.section.icon }}"></i>{{ goal.section.name }}</strong>
                 <p class="card-subtitle mb-2">{{ goal.name }}</p>
-                <div><i class="far fa-grin"></i></div>
+                <div><input type="checkbox" value="/user/valid/{{ goal.id }}" id="myCheck" onclick="if (this.checked) { window.location = this.value; }"></div>
             </div>
         {% else %}
             <p class="no-goal text-center">Pas d'objectif en cours :(</p>

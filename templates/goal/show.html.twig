@@ -27,7 +27,7 @@
         <div class="row text-center">
             <a href="{{ path('goal_edit', {'id': goal.id}) }}" class="col btn bg-info"><i class="far fa-edit"></i><p>Modifier</p></a>
             <a href="{{ path('goal_remove', {'id': goal.id}) }}" class="col btn bg-warning"><i class="far fa-calendar-times"></i><p>Retirer</p></a>
-            {% if goal.creator.id is defined and goal.creator.id == userGoals.id %}
+            {% if goal.creatorid is defined and goal.creatorid == userGoals.id %}
             <a href="{{ path('goal_delete', {'id': goal.id}) }}" class="col btn bg-danger"><i class="far fa-trash-alt"></i><p>Supprimer</p></a>
             {% endif %}
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Goal;
 use App\Entity\GoalSection;
 use App\Entity\User;
 use App\Form\UserType;
@@ -107,5 +108,28 @@ class UserController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('user_interests');
+    }
+
+    /**
+     * @Route("/valid/{id}", name="validate")
+     * @param Goal $goal
+     * @return RedirectResponse
+     */
+    public function validateTask(Goal $goal)
+    {
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $this->getUser()->getUsername()]);
+        $user->setExperience($user->getExperience() + 500);
+        $user->removeGoal($goal);
+        if ($user->getExperience() >= 1000){
+            $user->setLevel($user->getLevel() + 1);
+            $user->setExperience(0);
+        }
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('main');
     }
 }
