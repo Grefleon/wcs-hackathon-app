@@ -54,26 +54,9 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $goal->setSection($this->getReference('section_2'));
         $manager->persist($goal);
 
-        $interest = new GoalSection();
-        $interest->setName('Quotidien');
-        $interest->setIcon('fas fa-home');
-        $this->setReference('section_1', $interest);
-        $manager->persist($interest);
-        $user->addInterest($interest);
-
-        $interest = new GoalSection();
-        $interest->setName('Cuisine');
-        $interest->setIcon('fas fa-carrot');
-        $this->setReference('section_2', $interest);
-        $manager->persist($interest);
-        $user->addInterest($interest);
-
-        $interest = new GoalSection();
-        $interest->setName('Vie sociale');
-        $interest->setIcon('fas fa-users');
-        $this->setReference('section_3', $interest);
-        $manager->persist($interest);
-        $user->addInterest($interest);
+        $user->addInterest($this->getReference('section_5'));
+        $user->addInterest($this->getReference('section_3'));
+        $user->addInterest($this->getReference('section_1'));
 
         $entry = new ExperienceList();
         $entry->setReason('Inscription sur Smile');

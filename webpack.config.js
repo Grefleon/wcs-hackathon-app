@@ -26,9 +26,11 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('moodTest', './assets/js/moodTest.js')
     .addStyleEntry('home', './assets/scss/home.scss')
+    .addStyleEntry('psyList', './assets/scss/psyList.scss')
     .addStyleEntry('login', './assets/scss/login.scss')
     .addStyleEntry('main', './assets/scss/main.scss')
     .addStyleEntry('goal', './assets/scss/goal.scss')
+    .addStyleEntry('interests', './assets/scss/interests.scss')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

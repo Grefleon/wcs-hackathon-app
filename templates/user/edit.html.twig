@@ -9,6 +9,7 @@
 
 {% block body %}
     <section class="login container">
+        <div class="return"><a href="{{ path('main') }}"><i class="fas fa-arrow-left"></i></a></div>
         <div>
             {% for flashError in app.flashes('verify_email_error') %}
                 <div class="alert alert-danger" role="alert">{{ flashError }}</div>
@@ -18,7 +19,7 @@
 
             <div class="module mb-4">
                 {{ include('user/_form.html.twig', {'button_label': 'Enregistrer'}) }}
-                <a class="btn btn-danger mt-2" href="{{ path('main') }}">Retour</a>
+                <a class="btn btn-info mt-2" href="{{ path('user_interests') }}">Modifier mes centres d'intérêt</a>
             </div>
         </div>
     </section>

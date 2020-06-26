@@ -138,6 +138,9 @@
     "egulias/email-validator": {
         "version": "2.1.18"
     },
+    "fzaninotto/faker": {
+        "version": "v1.9.1"
+    },
     "kelunik/certificate": {
         "version": "v1.1.2"
     },
