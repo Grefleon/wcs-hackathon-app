@@ -86,41 +86,41 @@ a, a:hover {
 }
 
 .Quotidien{
-  background-color: #00cdff;
+    background-color: #00cdff;
+    box-shadow: inset 8px 8px 18px #00b6e3,
+    inset -8px -8px 18px #00e4ff;
 }
 
 .Cuisine{
-  background-color: #d78262;
+  background-color: #ef9e7d;
 }
 
-.Sociale{
-  background-color: #96d4c0;
+.Social{
+  background-color: #8ff6d5;
 }
 
 .Sport{
-  background-color: #cb8b61;
+  background-color: #f58f4d;
 }
 
 .Musique {
-    background-color: #c591cb;
+    background-color: #e876f5;
 }
 
 .Video {
-    background-color: #d9d9a9;
+    background-color: #fafa81;
 }
 
 .Science{
-  background-color: #4cd5c5;
+  background-color: #49f3df;
 }
 
 .Web{
-  background-color: #96a0d4;
+  background-color: #a3b0f5;
 }
 
-main{
-    h2{
-        color: $light;
-    }
+.Autre{
+    background-color: #dceee6;
 }
 
 .module {

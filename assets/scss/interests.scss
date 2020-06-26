@@ -22,11 +22,12 @@
     .interest{
         background-color: $primary;
         border-radius: $spacing-xs;
-        margin: $spacing-s;
         padding: $spacing-s;
+        margin: $spacing-s;
 
         i{
             margin: 0 $spacing-s 0 $spacing-s;
+            color: $dark;
         }
 
         p{

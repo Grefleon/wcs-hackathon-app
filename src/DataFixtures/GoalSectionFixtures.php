@@ -13,11 +13,11 @@ class GoalSectionFixtures extends Fixture
     const SECTIONS = [
         'Quotidien' => 'fas fa-home',
         'Cuisine'=> 'fas fa-carrot',
-        'Vie Sociale' => 'fas fa-users',
+        'Social' => 'fas fa-users',
         'Sport' => 'fas fa-basketball-ball',
         'Musique' => 'fas fa-music',
         'Jeux Video' => 'fas fa-gamepad',
-        'Developpement Web' => 'fas fa-laptop-code',
+        'Dev Web' => 'fas fa-laptop-code',
         'Science' => 'fas fa-microscope',
         'Autre' => 'far fa-grin-alt',
     ];

@@ -5,6 +5,7 @@
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('main') }}
+    {{ encore_entry_link_tags('goal') }}
 {% endblock %}
 
 {% block body %}
@@ -24,7 +25,7 @@
             {% if infos.interests is not empty %}
             <div class="row justify-content-around interests">
                 {% for interest in infos.interests %}
-                    <div class="interest d-flex flex-column align-items-center">
+                    <div class="{{ interest.name }} interest d-flex flex-column align-items-center">
                         <p class="small"><i class="{{ interest.icon }}"></i>{{ interest.name }}</p>
                     </div>
                 {% endfor %}
