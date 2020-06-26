@@ -1,4 +1,6 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {{ form_row(form.username, {'label': 'Nom d\'utilisateur'}) }}
+    {{ form_row(form.email, {'label': 'Adresse mail'}) }}
+    {{ form_row(form.avatar, {'label': 'Avatar'}) }}
     <button class="btn btn-primary btn-lg btn-block">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

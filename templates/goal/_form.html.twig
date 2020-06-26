@@ -1,4 +1,5 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {{ form_row(form.name, {'label': 'Nom'}) }}
+    {{ form_row(form.section, {'label': 'Catégorie'}) }}
     <button class="btn bg-primary">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
