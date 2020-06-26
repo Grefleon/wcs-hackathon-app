@@ -66,8 +66,8 @@
         {% else %}
             <p class="no-goal text-center">Pas d'objectif en cours :(</p>
         {% endfor %}
-
         <a class="btn btn-primary btn-block btn-lg" href="{{ path('goal_index') }}">Gérer mes objectifs</a>
+        <button class="chat btn btn-primary" id="chat"><i class="far fa-comment"></i></button>
     </div>
     {% if infos.moodTest %}
         <div class="bgMood" id="bgMood"></div>
