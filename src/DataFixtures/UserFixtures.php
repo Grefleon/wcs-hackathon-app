@@ -40,21 +40,18 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $goal = new Goal();
         $goal->setName('Voir ma famille dans la semaine');
         $goal->setSection($this->getReference('section_1'));
-        $goal->setCreator(null);
         $manager->persist($goal);
         $user->addGoal($goal);
 
         $goal = new Goal();
         $goal->setName('Faire une nouvelle recette');
         $goal->setSection($this->getReference('section_2'));
-        $goal->setCreator(null);
         $manager->persist($goal);
         $user->addGoal($goal);
 
         $goal = new Goal();
         $goal->setName('Aller au restaurant');
         $goal->setSection($this->getReference('section_2'));
-        $goal->setCreator(null);
         $manager->persist($goal);
 
         $user->addInterest($this->getReference('section_5'));

@@ -10,8 +10,6 @@
     <div class="return"><a href="{{ path('goal_index') }}"><i class="fas fa-arrow-left"></i></a></div>
     <h2>Editer mon Objectif</h2>
     <section class="module mb-2">
-        {{ form_row(form.name, {'label': 'Nom'}) }}
-        {{ form_row(form.section, {'label': 'Catégorie'}) }}
     {{ include('goal/_form.html.twig', {'button_label': 'Enregistrer'}) }}
     </section>
 </main>
