@@ -80,7 +80,7 @@ class GoalController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $goal->setCreatorId($user);
+            $goal->setCreator($user);
             $entityManager->persist($goal);
             $entityManager->flush();
             return $this->redirectToRoute('goal_index');

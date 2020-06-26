@@ -96,7 +96,7 @@ class User implements UserInterface
     private $interests;
 
     /**
-     * @ORM\OneToMany(targetEntity=Goal::class, mappedBy="creatorId")
+     * @ORM\OneToMany(targetEntity=Goal::class, mappedBy="creator", orphanRemoval=true)
      */
     private $personalGoals;
 
