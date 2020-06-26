@@ -10,6 +10,11 @@
 
 {% block body %}
     <section class="main-page container">
+        {% for message in app.flashes('success') %}
+            <div class="flash-notice">
+                {{ message }}
+            </div>
+        {% endfor %}
         <div class="infos">
             <div class="row flex-column justify-content-center align-items-center">
                 <div class="neu-avatar-box">
@@ -56,13 +61,13 @@
             <div class="card mb-2 text-center {{ goal.section.name }}">
                 <strong class="card-title"><i class="mr-2 {{ goal.section.icon }}"></i>{{ goal.section.name }}</strong>
                 <p class="card-subtitle mb-2">{{ goal.name }}</p>
-                <div><i class="far fa-grin"></i></div>
+                <div><input type="checkbox" value="/user/valid/{{ goal.id }}" id="myCheck" onclick="if (this.checked) { window.location = this.value; }"></div>
             </div>
         {% else %}
             <p class="no-goal text-center">Pas d'objectif en cours :(</p>
         {% endfor %}
-
-        <a class="moveToGoal btn btn-primary btn-block btn-lg" href="{{ path('goal_index') }}">Gérer mes objectifs</a>
+        <a class="btn btn-primary btn-block btn-lg" href="{{ path('goal_index') }}">Gérer mes objectifs</a>
+        <button class="chat btn btn-primary" id="chat"><i class="far fa-comment"></i></button>
     </div>
     {% if infos.moodTest %}
         <div class="bgMood" id="bgMood"></div>

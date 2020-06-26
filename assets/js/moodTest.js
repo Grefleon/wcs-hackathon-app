@@ -1,4 +1,8 @@
 window.addEventListener('load', function () {
+    document.getElementById("chat").addEventListener("click", function () {
+        document.getElementById("moodTest").style.display = "block";
+        document.getElementById("bgMood").style.display = "block";
+    });
     document.getElementById("happyBtn").addEventListener("click", function () {
         document.getElementById("bgMood").style.display = "none";
         document.getElementById("moodTest").style.display = "none";
@@ -15,6 +19,7 @@ window.addEventListener('load', function () {
         document.getElementById("no").addEventListener("click", function () {
             document.getElementById("listPsycho").style.display = "none";
             document.getElementById("bgMood").style.display = "none";
+            location.reload();
         });
     });
 })
