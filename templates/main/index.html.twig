@@ -9,12 +9,12 @@
 {% endblock %}
 
 {% block body %}
+    {% for message in app.flashes('success') %}
+        <canvas class="confetti" id="drawing_canvas"></canvas>
+        <p class="flash-notice">{{ message }}</p>
+        <div class="returnLvl"><a href="{{ path('main') }}"><i class="fas fa-arrow-left"></i></a></div>
+    {% endfor %}
     <section class="main-page container">
-        {% for message in app.flashes('success') %}
-            <div class="flash-notice">
-                {{ message }}
-            </div>
-        {% endfor %}
         <div class="infos">
             <div class="row flex-column justify-content-center align-items-center">
                 <div class="neu-avatar-box">
@@ -94,4 +94,5 @@
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('moodTest') }}
+    {{ encore_entry_script_tags('confetti') }}
 {% endblock %}
