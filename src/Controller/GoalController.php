@@ -8,6 +8,7 @@ use App\Entity\User;
 use App\Form\GoalType;
 use App\Repository\GoalRepository;
 use App\Repository\GoalSectionRepository;
+use App\Service\InterestManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,7 +28,7 @@ class GoalController extends AbstractController
      * @param GoalSectionRepository $goalSectionRepository
      * @return Response
      */
-    public function index (GoalSectionRepository $goalSectionRepository)
+    public function index (GoalSectionRepository $goalSectionRepository, InterestManager $interestManager)
     {
         $userGoals = $this->getDoctrine()
             ->getRepository(User::class)
@@ -40,10 +41,11 @@ class GoalController extends AbstractController
                 }
             }
         }
+        $userInterests = $interestManager->parseInterests($goalSectionRepository->findAll(), $userGoals);
         return $this->render('goal/index.html.twig', [
             'userGoals'=>$userGoals,
             'remainingGoals' => $remainingGoals,
-            'goalSectionRepository'=>$goalSectionRepository->findAll()
+            'userInterests'=> $userInterests
         ]);
     }
 
