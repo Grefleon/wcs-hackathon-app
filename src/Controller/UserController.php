@@ -125,6 +125,10 @@ class UserController extends AbstractController
         if ($user->getExperience() >= 1000){
             $user->setLevel($user->getLevel() + 1);
             $user->setExperience(0);
+            $this->addFlash(
+                'success',
+                'Vous avez gagné un niveau !'
+            );
         }
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($user);

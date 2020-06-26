@@ -10,6 +10,11 @@
 
 {% block body %}
     <section class="main-page container">
+        {% for message in app.flashes('success') %}
+            <div class="flash-notice">
+                {{ message }}
+            </div>
+        {% endfor %}
         <div class="infos">
             <div class="row flex-column justify-content-center align-items-center">
                 <div class="neu-avatar-box">
