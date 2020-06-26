@@ -6,11 +6,13 @@
             {{ encore_entry_link_tags('goal') }}
         {% endblock %}
 {% block body %}
-    <h1>Edit Goal</h1>
-
-    {{ include('goal/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('goal_index') }}">back to list</a>
-
-    {{ include('goal/_delete_form.html.twig') }}
+<main class="container-fluid mb-2">
+    <div class="return"><a href="{{ path('goal_index') }}"><i class="fas fa-arrow-left"></i></a></div>
+    <h2>Editer mon Objectif</h2>
+    <section class="module mb-2">
+        {{ form_row(form.name, {'label': 'Nom'}) }}
+        {{ form_row(form.section, {'label': 'Catégorie'}) }}
+    {{ include('goal/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+    </section>
+</main>
 {% endblock %}
