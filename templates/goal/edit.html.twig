@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Edit Goal{% endblock %}
-
+        {% block stylesheets %}
+            {{ parent() }}
+            {{ encore_entry_link_tags('goal') }}
+        {% endblock %}
 {% block body %}
     <h1>Edit Goal</h1>
 

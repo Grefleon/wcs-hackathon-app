@@ -1,6 +1,8 @@
-body{
-  overflow-y: auto;
+@import "vars";
 
+body {
+    overflow-y: auto;
+}
 main {
   margin: auto;
   position: relative;
@@ -11,17 +13,69 @@ main {
   background-color: var(--light);
 }
 
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.goalNow{
+    position: relative;
+    border-radius: $spacing;
+    padding: 0 20px 0 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    .left{
+        position: absolute;
+        left: 0;
+        align-self: center;
+        margin-left: 10px;
+    }
+    .middle{
+        align-self: center;
+        width: 90%;
+        line-height: 1.2;
+        margin: 0 auto 0 auto;
+    }
+    p{
+        margin: 5px;
+    }
+    .right{
+        position: absolute;
+        right: 0;
+        align-self: center;
+        margin-right: 10px;
+    }
+}
 
 .card-body{
   width: 12rem;
 }
 
+.card-subtitle{
+    text-decoration: none;
+    width: 95%;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin: auto;
+    color: $dark;
+    background-color: $light;
+    border-radius: $spacing;
+    &:hover {
+        text-decoration: none;
+        color: $dark;
+    }
+}
+.field{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 a, a:hover {
   text-decoration: none;
   color: inherit;
 }
 
-}
 .module {
      position: relative;
      z-index: 9;
@@ -47,18 +101,48 @@ a, a:hover {
   background-color: #cb8b61;
 }
 
-.Musique{
-  background-color: #c591cb;
+.Musique {
+    background-color: #c591cb;
 }
 
-.Video{
-  background-color: #d9d9a9;
+.Video {
+    background-color: #d9d9a9;
+}
+
+.Science{
+  background-color: #4cd5c5;
 }
 
 .Web{
   background-color: #96a0d4;
 }
 
-.Science{
-  background-color: #4cd5c5;
+main{
+    h2{
+        color: $light;
+    }
+}
+
+.module {
+    position: relative;
+    z-index: 9;
+    h3{
+        font-size: 32px;
+    }
+    a{
+        margin: 3px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .row .btn{
+        p{
+            margin: 0;
+        }
+    }
+}
+.goalShow{
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

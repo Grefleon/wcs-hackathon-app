@@ -1,35 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Mes Objectifs{% endblock %}
-
+        {% block stylesheets %}
+            {{ parent() }}
+            {{ encore_entry_link_tags('goal') }}
+        {% endblock %}
 {% block body %}
     <main class="container-fluid mb-2">
         <h2>Mes Objectifs</h2>
         <section class="module mb-2">
             <h3>En cours</h3>
             {% for goal in userGoals.goals %}
-                <div class="card mb-2 text-center goal {{ goal.section.name }}">
-                    <strong class="card-title"><i class="mr-2 {{ goal.section.icon }}"></i>{{ goal.name }}</strong>
-                    <div> <i class="far fa-grin"></i></div>
+                {% if goal.creator is null or goal.creator.id == userGoals.id %}
+                <div class="goalNow mb-2 text-center {{ goal.section.name }}">
+                    <i class="left {{ goal.section.icon }}"></i>
+                    <a class="mb-1 middle" href="{{ path('goal_show', {'id': goal.id}) }}">
+                        <p>
+                            {{ goal.name }}
+                        </p>
+
+                    </a>
+                    <a class="right">
+                        <i class="far fa-grin"></i>
+                    </a>
                 </div>
+                {% endif %}
             {% endfor %}
         </section>
         <section class="module">
             <h3>Définir d'autres objectifs</h3>
             {% for goalSection in goalSectionRepository %}
-                <div class="card mb-2 text-center goal {{ goalSection.name }}">
-                    <strong class="mb-2"><i class="mr-2 {{ goalSection.icon }}"></i>{{ goalSection.name }}</strong>
+                <div class="card mb-2 text-center {{ goalSection.name }}">
+                    <strong class="card-title"><i class="mr-2 {{ goalSection.icon }}"></i>{{ goalSection.name }}</strong>
                     {% for goal in goalSection.goals %}
-                        <div class="card-subtitle mb-2"><a href="{{ path("goal_set", {'id': goal.id}) }}">{{ goal.name }}</a></div>
+                        <a class="row goalNow card-subtitle adding my-1" href="{{ path("goal_set", {'id': goal.id}) }}">
+                            <i class="left fas fa-plus-circle text-primary"></i>
+                            <p class="middle my-1">{{ goal.name }}</p>
+                            <i class="right fas fa-plus-circle text-primary"></i>
+                        </a>
                     {% endfor %}
                 </div>
             {% endfor %}
             <div class="card mb-2 text-center">
                 <a href="{{ path("goal_new") }}"><i class="fas fa-plus"></i></a>
-            </div>
-
-            <div class="mt-4 mb-2 text-center">
-                <a href="{{ path("main") }}"><i class="fas fa-undo"></i></a>
             </div>
         </section>
     </main>

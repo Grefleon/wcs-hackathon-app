@@ -28,6 +28,11 @@ class Goal
      */
     private $section;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="personalGoals")
+     */
+    private $creator;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +58,18 @@ class Goal
     public function setSection(?GoalSection $section): self
     {
         $this->section = $section;
+
+        return $this;
+    }
+
+    public function getCreator(): ?User
+    {
+        return $this->creator;
+    }
+
+    public function setCreator(?User $creator): self
+    {
+        $this->creator = $creator;
 
         return $this;
     }

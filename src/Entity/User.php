@@ -95,11 +95,17 @@ class User implements UserInterface
      */
     private $interests;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Goal::class, mappedBy="creator", orphanRemoval=true)
+     */
+    private $personalGoals;
+
     public function __construct()
     {
         $this->goals = new ArrayCollection();
         $this->experienceList = new ArrayCollection();
         $this->interests = new ArrayCollection();
+        $this->personalGoals = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -320,6 +326,37 @@ class User implements UserInterface
     {
         if ($this->interests->contains($interest)) {
             $this->interests->removeElement($interest);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Goal[]
+     */
+    public function getPersonalGoals(): Collection
+    {
+        return $this->personalGoals;
+    }
+
+    public function addPersonalGoal(Goal $personalGoal): self
+    {
+        if (!$this->personalGoals->contains($personalGoal)) {
+            $this->personalGoals[] = $personalGoal;
+            $personalGoal->setCreatorId($this);
+        }
+
+        return $this;
+    }
+
+    public function removePersonalGoal(Goal $personalGoal): self
+    {
+        if ($this->personalGoals->contains($personalGoal)) {
+            $this->personalGoals->removeElement($personalGoal);
+            // set the owning side to null (unless already changed)
+            if ($personalGoal->getCreatorId() === $this) {
+                $personalGoal->setCreatorId(null);
+            }
         }
 
         return $this;
