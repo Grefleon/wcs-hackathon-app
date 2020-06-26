@@ -142,7 +142,6 @@ class GoalController extends AbstractController
     public function delete(Request $request, Goal $goal): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $goal->setCreator(null);
         $entityManager->remove($goal);
         $entityManager->flush();
         return $this->redirectToRoute('goal_index');
