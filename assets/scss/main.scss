@@ -170,7 +170,7 @@ div.experiences{
     a{
         margin-top: $spacing;
     }
-  
+
     .no-goal{
         margin-top: $spacing;
         margin-bottom: $spacing * 1.5;
@@ -248,4 +248,39 @@ div.experiences{
     right: $spacing;
     z-index: 12;
     font-size:30px;
+}
+
+.confetti{
+    position: absolute;
+    top:0;
+    bottom:0;
+    z-index: 20;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.6);
+    color: white;
+}
+
+.flash-notice{
+    position: absolute;
+    z-index: 22;
+    color: white;
+    top: 43vh;
+    width: 100%;
+    text-align: center;
+    font-weight: 400;
+    font-family: $font-title;
+    font-size: 36px;
+}
+
+.returnLvl{
+    position: relative;
+    top: $spacing-l;
+    left: $spacing-l;
+    z-index: 30;
+
+    i {
+        font-size: 30px;
+        color: white;
+    }
 }
