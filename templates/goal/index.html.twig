@@ -1,46 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Mes Objectifs{% endblock %}
-        {% block stylesheets %}
-            {{ parent() }}
-            {{ encore_entry_link_tags('goal') }}
-        {% endblock %}
+
 {% block body %}
     <main class="container-fluid mb-2">
         <h2>Mes Objectifs</h2>
         <section class="module mb-2">
             <h3>En cours</h3>
             {% for goal in userGoals.goals %}
-                {% if goal.creatorId is null or goal.creatorId.id == userGoals.id %}
-                <div class="goalNow mb-2 text-center {{ goal.section.name }}">
-                    <i class="left {{ goal.section.icon }}"></i>
-                    <a class="mb-1 middle" href="{{ path('goal_show', {'id': goal.id}) }}">
-                        <p>
-                            {{ goal.name }}
-                        </p>
-
-                    </a>
-                    <a class="right">
-                        <i class="far fa-grin"></i>
-                    </a>
+                <div class="card mb-2 text-center {{ goal.section.name }}">
+                    <strong class="card-title"><i class="mr-2 {{ goal.section.icon }}"></i>{{ goal.section.name }}</strong>
+                    <p class="card-subtitle mb-2">{{ goal.name }}</p>
+                    <div> <i class="far fa-grin"></i></div>
                 </div>
-                {% endif %}
             {% endfor %}
         </section>
         <section class="module">
             <h3>Définir d'autres objectifs</h3>
-            {% for goalSection in remainingGoals %}
+            {% for goalSection in goalSectionRepository %}
                 <div class="card mb-2 text-center {{ goalSection.name }}">
-                    <strong class="card-title"><i class="mr-2 {{ goalSection.icon }}"></i>{{ goalSection.name }}</strong>
-                    {% for goal in goalSection.goals %}
-                    <div>
-                        <a class="card-subtitle adding my-1" href="{{ path("goal_set", {'id': goal.id}) }}">
-                            <i class="fas fa-plus-circle text-primary"></i>
-                            {{ goal.name }}
-                            <i class="fas fa-plus-circle text-primary"></i>
-                        </a>
-                    </div>
-                    {% endfor %}
+                    <strong><i class="mr-2 {{ goalSection.icon }}"></i>{{ goalSection.name }}</strong>
+                    <ul>
+                        {% for goal in goalSection.goals %}
+                            <div><a href="{{ path("goal_set", {'id': goal.id}) }}">{{ goal.name }}</a></div>
+                        {% endfor %}
+                    </ul>
                 </div>
             {% endfor %}
             <div class="card mb-2 text-center">

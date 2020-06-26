@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Goal;
-use App\Entity\GoalSection;
 use App\Entity\User;
 use App\Form\GoalType;
 use App\Repository\GoalRepository;
@@ -13,7 +12,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @Route("/goal", name="goal_")
@@ -25,24 +23,14 @@ class GoalController extends AbstractController
      * @param GoalSectionRepository $goalSectionRepository
      * @return Response
      */
-    public function index (GoalSectionRepository $goalSectionRepository)
-    {
+    public function index (GoalSectionRepository $goalSectionRepository) {
+
+        $user = $this->getUser();
         $userGoals = $this->getDoctrine()
             ->getRepository(User::class)
             ->findOneByUsername($this->getUser()->getUsername());
-        $actualGoals = $userGoals->getGoals();
-        $remainingGoals = $goalSectionRepository->findAll();
-        foreach ($remainingGoals as $remainingGoal) {
-            foreach ($userGoals->getGoals() as $key => $goal) {
-                if ($remainingGoal->getGoals()->contains($goal)) {
-                    dd($remainingGoals[$key]->);
-                    unset($remainingGoals[$key]);
-                }
-            }
-        }
         return $this->render('goal/index.html.twig', [
             'userGoals'=>$userGoals,
-            'remainingGoals' => $remainingGoals,
             'goalSectionRepository'=>$goalSectionRepository->findAll()
         ]);
     }
@@ -62,24 +50,17 @@ class GoalController extends AbstractController
     /**
      * @Route("/new", name="new", methods={"GET","POST"})
      * @param Request $request
-     * @param UserInterface $user
      * @return Response
      */
-    public function new(Request $request, UserInterface $user): Response
+    public function new(Request $request): Response
     {
         $goal = new Goal();
         $form = $this->createForm(GoalType::class, $goal);
         $form->handleRequest($request);
 
-        $actuallyUser = $user->getId();
-
-        $actualUser = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->findOneBy(['id' => $actuallyUser]);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $goal->setCreatorId($user);
             $entityManager->persist($goal);
             $entityManager->flush();
             return $this->redirectToRoute('goal_index');
@@ -92,7 +73,17 @@ class GoalController extends AbstractController
     }
 
     /**
-     * @Route("/edit/{id}", name="edit", methods={"GET","POST"})
+     * @Route("/{id}", name="show", methods={"GET"})
+     */
+    public function show(Goal $goal): Response
+    {
+        return $this->render('goal/show.html.twig', [
+            'goal' => $goal,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Goal $goal): Response
     {
@@ -112,20 +103,6 @@ class GoalController extends AbstractController
     }
 
     /**
-     * @Route("/show/{id}", name="show", methods={"GET","POST"})
-     */
-    public function show(Request $request, Goal $goal): Response
-    {
-        $goalSelected = $this->getDoctrine()
-            ->getRepository(Goal::class)
-            ->find($goal->getId());
-
-        return $this->render('goal/show.html.twig', [
-            'goal' => $goal,
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="delete", methods={"DELETE"})
      */
     public function delete(Request $request, Goal $goal): Response
@@ -135,32 +112,6 @@ class GoalController extends AbstractController
             $entityManager->remove($goal);
             $entityManager->flush();
         }
-
-        return $this->redirectToRoute('goal_index');
-    }
-
-    /**
-     * @Route("remove/{id}", name="remove", methods={"GET","POST"})
-     * @param UserInterface $user
-     * @param Request $request
-     * @param Goal $goal
-     * @return Response
-     */
-    public function remove(UserInterface $user, Request $request, Goal $goal): Response
-    {
-        $actuallyUser = $user->getId();
-
-        $actualUser = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->findOneBy(['id' => $actuallyUser]);
-
-        $actualUser->removeGoal($goal);
-
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $entityManager->persist($actualUser);
-
-        $entityManager->flush();
 
         return $this->redirectToRoute('goal_index');
     }
