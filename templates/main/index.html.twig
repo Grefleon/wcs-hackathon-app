@@ -25,8 +25,7 @@
             <div class="row justify-content-around interests">
                 {% for interest in infos.interests %}
                     <div class="interest d-flex flex-column align-items-center">
-                        <i class="{{ interest.icon }}"></i>
-                        <div class="small">{{ interest.name }}</div>
+                        <p class="small"><i class="{{ interest.icon }}"></i>{{ interest.name }}</p>
                     </div>
                 {% endfor %}
             </div>

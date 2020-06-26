@@ -133,12 +133,39 @@ div.experiences{
             margin: $spacing 0 $spacing-s $spacing-s;
 
             .interest{
-                background-color: $primary;
-                border-radius: $spacing-s;
+                border-radius: $spacing;
                 padding: $spacing-xs;
+
                 .small{
                     font-size: 0.6em;
                 }
+
+                p{
+                    margin-bottom: 0;
+                    padding-left: 3px;
+                    padding-right: 3px;
+
+                    i{
+                        margin-right: $spacing-s;
+                    }
+                }
+
+            }
+
+            & > :nth-child(1){
+                background-color: #00cdff;
+                box-shadow: inset 8px 8px 18px #00b6e3,
+                inset -8px -8px 18px #00e4ff;
+            }
+            & > :nth-child(2){
+                background-color: #fffb00;
+                box-shadow: inset 8px 8px 18px #e3df00,
+                inset -8px -8px 18px #ffff00;
+            }
+            & > :nth-child(3){
+                background-color: #4cff00;
+                box-shadow: inset 8px 8px 18px #44e300,
+                inset -8px -8px 18px #54ff00;
             }
         }
     }
@@ -167,6 +194,17 @@ div.experiences{
     }
 
     margin-bottom: $spacing-l;
+
+    & > :nth-child(2){
+        background-color: #00cdff;
+        box-shadow: inset 8px 8px 18px #00b6e3,
+        inset -8px -8px 18px #00e4ff;
+    }
+    & > :nth-child(3){
+        background-color: #fffb00;
+        box-shadow: inset 8px 8px 18px #e3df00,
+        inset -8px -8px 18px #ffff00;
+    }
 }
 
 .moodTest{
