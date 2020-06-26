@@ -37,25 +37,92 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setLevel();
         $user->setMoodTest(true);
 
+
+        //GoalFixtures//
+
         $goal = new Goal();
         $goal->setName('Voir ma famille dans la semaine');
         $goal->setSection($this->getReference('section_1'));
-        $goal->setCreator(null);
+        $manager->persist($goal);
+        $user->addGoal($goal);
+
+        $goal = new Goal();
+        $goal->setName('Se coucher à une heure prédéfinie');
+        $goal->setSection($this->getReference('section_1'));
+        $manager->persist($goal);
+        $user->addGoal($goal);
+
+        $goal = new Goal();
+        $goal->setName('Faire le ménage');
+        $goal->setSection($this->getReference('section_1'));
         $manager->persist($goal);
         $user->addGoal($goal);
 
         $goal = new Goal();
         $goal->setName('Faire une nouvelle recette');
         $goal->setSection($this->getReference('section_2'));
-        $goal->setCreator(null);
         $manager->persist($goal);
         $user->addGoal($goal);
 
         $goal = new Goal();
         $goal->setName('Aller au restaurant');
         $goal->setSection($this->getReference('section_2'));
-        $goal->setCreator(null);
         $manager->persist($goal);
+
+        $goal = new Goal();
+        $goal->setName('Faire un gâteau');
+        $goal->setSection($this->getReference('section_2'));
+        $manager->persist($goal);
+
+        $goal = new Goal();
+        $goal->setName('Sortir en ville');
+        $goal->setSection($this->getReference('section_3'));
+        $manager->persist($goal);
+        $user->addGoal($goal);
+
+        $goal = new Goal();
+        $goal->setName('Voir des amis');
+        $goal->setSection($this->getReference('section_3'));
+        $manager->persist($goal);
+
+        $goal = new Goal();
+        $goal->setName('Faire une nouvelle rencontre');
+        $goal->setSection($this->getReference('section_3'));
+        $manager->persist($goal);
+
+        $goal = new Goal();
+        $goal->setName('Faire une séance de sport');
+        $goal->setSection($this->getReference('section_4'));
+        $manager->persist($goal);
+        $user->addGoal($goal);
+
+        $goal = new Goal();
+        $goal->setName('Aller courir');
+        $goal->setSection($this->getReference('section_4'));
+        $manager->persist($goal);
+
+        $goal = new Goal();
+        $goal->setName('S\'inscrire à une activité sportive');
+        $goal->setSection($this->getReference('section_4'));
+        $manager->persist($goal);
+
+        $goal = new Goal();
+        $goal->setName('Acheter un album');
+        $goal->setSection($this->getReference('section_5'));
+        $manager->persist($goal);
+        $user->addGoal($goal);
+
+        $goal = new Goal();
+        $goal->setName('Voir un concert');
+        $goal->setSection($this->getReference('section_5'));
+        $manager->persist($goal);
+
+        $goal = new Goal();
+        $goal->setName('Créer sa playlist');
+        $goal->setSection($this->getReference('section_5'));
+        $manager->persist($goal);
+
+        //endGoal//
 
         $user->addInterest($this->getReference('section_5'));
         $user->addInterest($this->getReference('section_3'));
