@@ -19,6 +19,7 @@ window.addEventListener('load', function () {
         document.getElementById("no").addEventListener("click", function () {
             document.getElementById("listPsycho").style.display = "none";
             document.getElementById("bgMood").style.display = "none";
+            location.reload();
         });
     });
 })
