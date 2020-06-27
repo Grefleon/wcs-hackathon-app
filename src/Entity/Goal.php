@@ -20,7 +20,7 @@ class Goal
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $goal;
+    private $name;
 
     /**
      * @ORM\ManyToOne(targetEntity=GoalSection::class, inversedBy="goals")
@@ -28,19 +28,24 @@ class Goal
      */
     private $section;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $creatorId;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getGoal(): ?string
+    public function getName(): ?string
     {
-        return $this->goal;
+        return $this->name;
     }
 
-    public function setGoal(string $goal): self
+    public function setName(string $name): self
     {
-        $this->goal = $goal;
+        $this->name = $name;
 
         return $this;
     }
@@ -53,6 +58,18 @@ class Goal
     public function setSection(?GoalSection $section): self
     {
         $this->section = $section;
+
+        return $this;
+    }
+
+    public function getCreatorId(): ?int
+    {
+        return $this->creatorId;
+    }
+
+    public function setCreatorId(?int $creatorId): self
+    {
+        $this->creatorId = $creatorId;
 
         return $this;
     }

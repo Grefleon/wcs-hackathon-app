@@ -1,0 +1,63 @@
+@import 'vars';
+
+.psyList {
+
+	h2{
+		padding-top:$spacing;
+		color: white;
+	}
+
+	.return {
+		position: fixed;
+		left: $spacing;
+		z-index: 11;
+
+		i {
+			color: black;
+			font-size: 30px;
+		}
+	}
+
+	.psy {
+		position: relative;
+		border-radius: $spacing;
+		background-color: $light;
+		padding: $spacing;
+		width: 90%;
+		margin-top: $spacing;
+		top: $spacing;
+		left: $spacing;
+		z-index: 10;
+
+		.avatar {
+			border-radius: 50%;
+			width: 100px;
+			margin: auto;
+			margin-bottom: $spacing-s;
+			box-shadow:  7px -7px 14px #c3d9d2,
+			-7px 7px 14px #ffffff;
+		}
+
+		h3 {
+			font-size: 26px;
+			margin: $spacing-xs;
+		}
+
+		p {
+			width: 90%;
+			margin: auto;
+			margin-top: $spacing-s;
+			text-align: center;
+
+			i {
+				margin-right: $spacing-s;
+			}
+		}
+
+		.rdv {
+			position: relative;
+			width: 275px;
+			margin: auto;
+		}
+	}
+}

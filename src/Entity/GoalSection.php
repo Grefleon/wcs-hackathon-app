@@ -34,9 +34,15 @@ class GoalSection
      */
     private $icon;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="interests")
+     */
+    private $users;
+
     public function __construct()
     {
         $this->goals = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -78,7 +84,6 @@ class GoalSection
     {
         if ($this->goals->contains($goal)) {
             $this->goals->removeElement($goal);
-            // set the owning side to null (unless already changed)
             if ($goal->getSection() === $this) {
                 $goal->setSection(null);
             }
@@ -95,6 +100,34 @@ class GoalSection
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addInterest($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeInterest($this);
+        }
 
         return $this;
     }

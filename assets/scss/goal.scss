@@ -1,0 +1,165 @@
+@import "vars";
+
+body {
+    overflow-y: auto;
+}
+main {
+  margin: auto;
+  position: relative;
+  z-index: 7;
+}
+
+.module {
+  background-color: var(--light);
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.goalNow{
+    position: relative;
+    border-radius: $spacing;
+    padding: 0 20px 0 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    .left{
+        position: absolute;
+        left: 0;
+        align-self: center;
+        margin-left: 10px;
+    }
+    .middle{
+        align-self: center;
+        width: 90%;
+        line-height: 1.2;
+        margin: 0 auto 0 auto;
+    }
+    p{
+        margin: 5px;
+    }
+    .right{
+        position: absolute;
+        right: 0;
+        align-self: center;
+        margin-right: 10px;
+    }
+}
+
+.card-body{
+  width: 12rem;
+}
+
+.card-subtitle{
+    text-decoration: none;
+    width: 95%;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin: auto;
+    color: $dark;
+    background-color: $light;
+    border-radius: $spacing;
+    &:hover {
+        text-decoration: none;
+        color: $dark;
+    }
+}
+.field{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.module {
+     position: relative;
+     z-index: 9;
+   }
+
+.goal {
+  color: var(--light);
+}
+
+.Quotidien{
+    background-color: #00cdff;
+    box-shadow: inset 8px 8px 18px #00b6e3,
+    inset -8px -8px 18px #00e4ff;
+}
+
+.Cuisine{
+    background-color: #ef9e7d;
+    box-shadow: inset 8px 8px 18px #cb866a,
+    inset -8px -8px 18px #ffb690;
+}
+
+.Social{
+    background-color: #8ff6d5;
+    box-shadow: inset 8px 8px 18px #7ad1b5,
+    inset -8px -8px 18px #a4fff5;
+}
+
+.Sport{
+  background-color: #f58f4d;
+    box-shadow: inset 8px 8px 18px #d07a41,
+    inset -8px -8px 18px #ffa459;
+}
+
+.Musique {
+    background-color: #e876f5;
+    box-shadow: inset 8px 8px 18px #c564d0,
+    inset -8px -8px 18px #ff88ff;
+}
+
+.Video {
+    background-color: #fafa81;
+    box-shadow: inset 8px 8px 18px #d5d56e,
+    inset -8px -8px 18px #ffff94;
+}
+
+.Science{
+  background-color: #49f3df;
+    box-shadow: inset 8px 8px 18px #3ecfbe,
+    inset -8px -8px 18px #54ffff;
+}
+
+.Web{
+  background-color: #a3b0f5;
+    box-shadow: inset 8px 8px 18px #8b96d0,
+    inset -8px -8px 18px #bbcaff;
+}
+
+.Autre{
+    background-color: #dceee6;
+    box-shadow: inset 8px 8px 18px #bbcac4,
+    inset -8px -8px 18px #fdffff;
+}
+
+.module {
+    position: relative;
+    z-index: 9;
+    h3{
+        font-size: 32px;
+    }
+    a{
+        margin: 3px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .row .btn{
+        p{
+            margin: 0;
+        }
+    }
+}
+.goalShow{
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

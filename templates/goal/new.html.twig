@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Goal{% endblock %}
+        {% block stylesheets %}
+            {{ parent() }}
+            {{ encore_entry_link_tags('goal') }}
+        {% endblock %}
+{% block body %}
+<main class="container-fluid mb-2">
+    <div class="return"><a href="{{ path('goal_index') }}"><i class="fas fa-arrow-left"></i></a></div>
+    <h2>Ajouter</h2>
+    <section class="module mb-2">
+        {{ include('goal/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+    </section>
+</main>
+{% endblock %}

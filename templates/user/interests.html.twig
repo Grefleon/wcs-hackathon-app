@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier mes intérêts{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('interests') }}
+{% endblock %}
+
+{% block body %}
+    <section class="interests container">
+        <h2>Mes centres d'intérêt actuels</h2>
+        {% for current in currents %}
+            <div class="interest row justify-content-between">
+                <div class="d-flex align-items-center">
+                    <i class="{{ current.icon }}"></i>
+                    <p>{{ current.name }}</p>
+                </div>
+                <div>
+                    <a href="{{ path('user_interests_remove', {'id': current.id}) }}">
+                        <i class="far fa-minus-square"></i>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        <h2>Autres centres d'intérêt</h2>
+        {% for interest in interests %}
+            <div class="interest row justify-content-between">
+                <div class="d-flex align-items-center">
+                    <i class="{{ interest.icon }}"></i>
+                    <p>{{ interest.name }}</p>
+                </div>
+                <div>
+                    <a href="{{ path('user_interests_add', {'id': interest.id}) }}">
+                        <i class="far fa-plus-square"></i>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        <a href="{{ path('main') }}" class="btn btn-primary-shadow btn-lg btn-block back">
+            Retour à la page principale
+        </a>
+    </section>
+{% endblock %}

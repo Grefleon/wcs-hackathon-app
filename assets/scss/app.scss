@@ -10,7 +10,6 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 
 body {
     width: 100vw;
-    height: 90vh;
     background-color: $secondary-shadow;
     font-family: $font-text;
     font-size: $font-size-sm;
@@ -54,19 +53,7 @@ form label{
     border-radius: $spacing;
     font-family: $font-text;
     font-size: $font-size-sm;
-}
-
-.Quotidien{
-    background-color: #656f68;
-    color: var(--light);
-}
-
-.Cuisine{
-    background-color: #d78262;
-}
-
-.Vie{
-    background-color: #96d4c0;
+    color: white;
 }
 
 @media screen and (min-width: 1000px) {

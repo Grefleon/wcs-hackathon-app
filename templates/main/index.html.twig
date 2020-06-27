@@ -5,9 +5,15 @@
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('main') }}
+    {{ encore_entry_link_tags('goal') }}
 {% endblock %}
 
 {% block body %}
+    {% for message in app.flashes('success') %}
+        <canvas class="confetti" id="drawing_canvas"></canvas>
+        <p class="flash-notice">{{ message }}</p>
+        <div class="returnLvl"><a href="{{ path('main') }}"><i class="fas fa-arrow-left"></i></a></div>
+    {% endfor %}
     <section class="main-page container">
         <div class="infos">
             <div class="row flex-column justify-content-center align-items-center">
@@ -21,7 +27,16 @@
             <div class="row flex-column text-center">
                 <h2>{{ infos.username }}</h2>
             </div>
-            <a class="edit" href="{{ path('user_edit', {'id': infos.id }) }}">
+            {% if infos.interests is not empty %}
+            <div class="row justify-content-around interests">
+                {% for interest in infos.interests %}
+                    <div class="{{ interest.name }} interest d-flex flex-column align-items-center">
+                        <p class="small"><i class="{{ interest.icon }}"></i>{{ interest.name }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <a class="edit" href="{{ path('user_edit') }}">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </a>
             <a class="logout" href="{{ path('app_logout')}}">
@@ -45,14 +60,14 @@
         {% for goal in infos.goals %}
             <div class="card mb-2 text-center {{ goal.section.name }}">
                 <strong class="card-title"><i class="mr-2 {{ goal.section.icon }}"></i>{{ goal.section.name }}</strong>
-                <p class="card-subtitle mb-2">{{ goal.goal }}</p>
-                <div><i class="far fa-grin"></i></div>
+                <p class="card-subtitle mb-2">{{ goal.name }}</p>
+                <div><input type="checkbox" value="/user/valid/{{ goal.id }}" id="myCheck" onclick="if (this.checked) { window.location = this.value; }"></div>
             </div>
         {% else %}
             <p class="no-goal text-center">Pas d'objectif en cours :(</p>
         {% endfor %}
-
         <a class="btn btn-primary btn-block btn-lg" href="{{ path('goal_index') }}">Gérer mes objectifs</a>
+        <button class="chat btn btn-primary" id="chat"><i class="far fa-comment"></i></button>
     </div>
     {% if infos.moodTest %}
         <div class="bgMood" id="bgMood"></div>
@@ -65,10 +80,19 @@
                 <button class="btn btn-primary" id="sadBtn"><i class="far fa-frown"></i></button>
             </div>
         </section>
+        <section class="listPsycho" id="listPsycho">
+            <h3 id="titleMood">Pas le moral ?</h3>
+            <p id="textMood">En parler peut-être une solution pour vous sentir mieux, en avez-vous envie?</p>
+            <div class="row justify-content-center align-content-center" id="btnMood">
+                <a href="{{ path('psychologist') }}" class="yes btn btn-primary" id="yes">Oui</a>
+                <button class="no btn btn-primary" id="no">Non</button>
+            </div>
+        </section>
     {% endif %}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('moodTest') }}
+    {{ encore_entry_script_tags('confetti') }}
 {% endblock %}

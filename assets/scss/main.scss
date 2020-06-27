@@ -84,7 +84,6 @@ div.experiences{
         font-size: 24px;
         position: relative;
 
-
         .neu-avatar-box{
             border-radius: 50%;
             background: linear-gradient(45deg, #cee6de, #f5ffff);
@@ -106,9 +105,7 @@ div.experiences{
             padding: $spacing-s;
             line-height: 0.75em;
             font-size: 0.75em;
-            .small{
-                font-size: 0.75em;
-            }
+
         }
 
         h2{
@@ -131,6 +128,29 @@ div.experiences{
             top: $spacing-s;
             right: $spacing-s;
         }
+
+        .interests{
+            margin: $spacing 0 $spacing-s $spacing-s;
+
+            .interest{
+                border-radius: $spacing;
+                padding: $spacing-xs;
+
+                .small{
+                    font-size: 0.6em;
+                }
+
+                p{
+                    margin-bottom: 0;
+                    padding-left: 3px;
+                    padding-right: 3px;
+
+                    i{
+                        margin-right: $spacing-s;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -142,7 +162,7 @@ div.experiences{
     padding: $spacing;
     width: 90%;
     margin-top: $spacing;
-  
+
     h2{
         font-size: 32px;
     }
@@ -150,14 +170,17 @@ div.experiences{
     a{
         margin-top: $spacing;
     }
-  
+
     .no-goal{
         margin-top: $spacing;
         margin-bottom: $spacing * 1.5;
     }
+
+    margin-bottom: $spacing-l;
 }
 
 .moodTest{
+    display: none;
     position: absolute;
     z-index: 8;
     border-radius: $spacing;
@@ -183,13 +206,81 @@ div.experiences{
     }
 }
 
+.listPsycho{
+    display: none;
+    position: absolute;
+    z-index: 8;
+    border-radius: $spacing;
+    background-color: $light;
+    padding: $spacing;
+    width: 90%;
+    margin: $spacing auto auto;
+    top:$spacing;
+    left: $spacing;
+
+    button{
+        margin: $spacing-xs;
+    }
+
+    a{
+        border-radius: $spacing;
+        font-family: $font-text;
+        font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+        margin: $spacing-xs;
+        color: white;
+    }
+}
+
 .bgMood{
+    display: none;
     position: absolute;
     top:0;
     left:0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.5);
     width: 100%;
-    height: 110%;
+    height: 100%;
     z-index: 7;
-    margin-top: $spacing;
+}
+
+.chat{
+    position: fixed;
+    bottom: $spacing;
+    right: $spacing;
+    z-index: 12;
+    font-size:30px;
+}
+
+.confetti{
+    position: absolute;
+    top:0;
+    bottom:0;
+    z-index: 20;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.6);
+    color: white;
+}
+
+.flash-notice{
+    position: absolute;
+    z-index: 22;
+    color: white;
+    top: 43vh;
+    width: 100%;
+    text-align: center;
+    font-weight: 400;
+    font-family: $font-title;
+    font-size: 36px;
+}
+
+.returnLvl{
+    position: relative;
+    top: $spacing-l;
+    left: $spacing-l;
+    z-index: 30;
+
+    i {
+        font-size: 30px;
+        color: white;
+    }
 }
